@@ -35,7 +35,7 @@ input:hover, input:focus
 
 input[type="submit"]
 {
-	width:30%;
+	width:25%;
 	height:7.5vmin;
 	margin-top:5%;
 	color:#0067cf;
@@ -65,7 +65,7 @@ input[type="submit"]
 	
 	input[type="submit"]
 	{
-		width:30%;
+		width:25%;
 		height:4vmin;
 	}
 }
