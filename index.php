@@ -71,7 +71,7 @@
 			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75" onClick="location.href='pages/registration';"/>
 			<image class="menu-btn-img" x="497" y="845" width="100" height="100" xlink:href="images/menu-icons/registration.svg"/>
 			<circle id="gyms-btn" class="menu-btn" cx="250" cy="325" r="95"/>
-			<image class="menu-btn-img" x="95" y="330" width="130" height="130" xlink:href="images/menu-icons/gym.svg"/>
+			<image class="menu-btn-img" x="92" y="328" width="130" height="130" xlink:href="images/menu-icons/gym.svg"/>
 			<circle id="rules-btn" class="menu-btn" cx="800" cy="400" r="95"/>
 			<image class="menu-btn-img" x="605" y="527" width="130" height="130" xlink:href="images/menu-icons/book.svg"/>
 			<circle id="profile-btn" class="menu-btn" cx="500" cy="500" r="135"/>
