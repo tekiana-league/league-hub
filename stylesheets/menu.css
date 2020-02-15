@@ -1,0 +1,154 @@
+/*General styles go here*/
+#menu-overlay
+{
+	position:absolute;
+	top:0;
+	left:0;
+	display:block;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	z-index:10;
+	background-color:rgba(34,34,34,.8);
+	opacity:0;
+	visibility:hidden;
+	transition:visibility 0s, opacity .05s linear;
+	-webkit-user-select: none; /* Safari 3.1+ */
+	-moz-user-select: none; /* Firefox 2+ */
+	-ms-user-select: none; /* IE 10+ */
+	user-select: none; /* Standard syntax */
+}
+
+#menu-overlay.display
+{
+	opacity:1;
+	visibility:visible;
+}
+
+#menu-border
+{
+	position:absolute;
+	top:-15%;
+	left:0;
+	display:block;
+	width:100%;
+	height:130%;
+	background-color:#c42833;
+	transform:rotate(10deg);
+	z-index:-1;
+}
+
+#menu-bg
+{
+	position:absolute;
+	top:0;
+	left:12.5%;
+	width:75%;
+	height:100%;
+	background-color:#e3313f;
+}
+
+#menu-exit-btn, #menu-show-btn
+{
+	top:3vmin;
+	left:1.5vmin;
+	width:10vmin;
+	height:10vmin;
+	z-index:5;
+}
+
+#menu-close-icon
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+#menu-buttons
+{
+	position:absolute;
+	top:calc((100vh - 100vmin)/2);
+	left:0;
+	width:100vmin;
+	height:100vmin;
+	filter: drop-shadow(.25vmin .25vmin .5vmin #222);
+}
+
+.menu-line
+{
+	fill:rgba(0,0,0,0);
+	stroke:#0ff;
+	stroke-width:5;
+}
+
+.menu-btn
+{
+	position:absolute;
+	border-radius:50%;
+	background-color:#fff;
+	fill:#fff;
+	box-shadow:.25vmin .25vmin .5vmin #222;
+	cursor:pointer;
+}
+
+.menu-btn:hover
+{
+	background-color:#444;
+	fill:#444;
+}
+
+.menu-btn:active
+{
+	background-color:#222;
+	fill:#222;
+}
+
+.menu-btn-text
+{
+	fill:#fff;
+	font-family:'Roboto',sans-serif;
+	font-size:24pt;
+}
+
+.menu-btn-img
+{
+	pointer-events:none;
+	transform:rotate(-15deg);
+}
+
+@media only screen and (orientation: landscape)
+{
+	/*Place styles here for landscape-mode devices*/
+	#menu-border
+	{
+		top:0;
+		left:-15%;
+		width:130%;
+		height:100%;
+		transform:rotate(-10deg);
+	}
+	
+	#menu-bg
+	{
+		top:10%;
+		left:0;
+		width:100%;
+		height:80%;
+	}
+	
+	#menu-exit-btn, #menu-show-btn
+	{
+		top:1vmin;
+		left:2.5vmin;
+		width:7.5vmin;
+		height:7.5vmin;
+	}
+	
+	#menu-buttons
+	{
+		top:0;
+		left:calc((100vw - 100vmin)/2);
+	}
+}

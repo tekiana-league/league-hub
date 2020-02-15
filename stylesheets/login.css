@@ -1,0 +1,71 @@
+/*General styles go here*/
+#login-form
+{
+	width:auto;
+	padding:0% 20%;
+}
+
+.input-label
+{
+	text-align:left;
+	margin-bottom:2%;
+}
+
+input
+{
+	font-size:3vmin;
+	border-radius:2vmin;
+	border-color:#15a7eb;
+	border-width:.425vmin;
+	background-color:#eee;
+}
+
+input[type="text"], input[type="password"]
+{
+	width:100%;
+	height:4vmin;
+	padding-left:1.5%;
+}
+
+input:hover, input:focus
+{
+	border-color:#2debe1;
+	background-color:#ddd;
+}
+
+input[type="submit"]
+{
+	width:30%;
+	height:7.5vmin;
+	margin-top:5%;
+	color:#0067cf;
+}
+
+@media only screen and (orientation: landscape)
+{
+	/*Place styles here for landscape-mode devices*/
+	#login-form
+	{
+		margin-top:-5%;
+		padding:0% 40%;
+	}
+	
+	input
+	{
+		font-size:2vmin;
+		border-radius:1vmin;
+		border-width:.25vmin;
+	}
+	
+	input[type="text"], input[type="password"]
+	{
+		height:2.5vmin;
+		padding-left:2.5%;
+	}
+	
+	input[type="submit"]
+	{
+		width:30%;
+		height:4vmin;
+	}
+}

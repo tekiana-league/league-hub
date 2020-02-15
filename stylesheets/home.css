@@ -1,0 +1,17 @@
+/*General styles go here*/
+.content-div
+{
+	display:inline-block;
+	width:100%;
+	height:auto;
+}
+
+@media only screen and (orientation: landscape)
+{
+	/*Place styles here for landscape-mode devices*/
+	.content-div
+	{
+		width:49.9%;
+		height:auto;
+	}
+}
