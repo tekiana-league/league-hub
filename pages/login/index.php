@@ -1,6 +1,6 @@
 <?php
 	// Include necessary functions
-	require_once('./scripts/login-verification.php');
+	require_once('../../scripts/login-verification.php');
 	
 	// Test to see if the user is logged in
 	if (verify_login())
