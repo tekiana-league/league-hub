@@ -66,7 +66,7 @@
 			<line class="menu-line" x1="500" y1="500" x2="750" y2="725"/>
 			<circle id="map-btn" class="menu-btn" cx="225" cy="650" r="75"/>
 			<image class="menu-btn-img" x="-2" y="628" width="100" height="100" xlink:href="images/menu-icons/map.svg"/>
-			<circle id="login-btn" class="menu-btn" cx="675" cy="150" r="75" onClick="location.href('pages/<?php echo $btnText;?>')"/>
+			<circle id="login-btn" class="menu-btn" cx="675" cy="150" r="75" onClick="location.href='pages/<?php echo $btnText;?>';"/>
 			<image class="menu-btn-img" x="572" y="270" width="100" height="100" xlink:href="images/menu-icons/<?php echo $btnText;?>.svg"/>
 			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75"/>
 			<image class="menu-btn-img" x="497" y="845" width="100" height="100" xlink:href="images/menu-icons/registration.svg"/>
