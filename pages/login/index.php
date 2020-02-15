@@ -37,7 +37,7 @@
  </head>
  <body>
 	<div id="login-container" action="./" method="post">
-		<img id="league-logo" src="../images/logos/league-logo.png" alt="League Logo"/>
+		<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 		<h1>Trainer Login</h1>
 		<form id="login-form">
 			<h2 class="input-label">Trainer ID</h2>
