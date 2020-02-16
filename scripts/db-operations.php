@@ -34,6 +34,7 @@
 		}
 		else
 		{
+			echo "<script>console.log('PHP: ".'non-empty array'."');</script>";
 			$result = pg_fetch_all();
 			/*while ($row = pg_fetch_array($result))
 			{
