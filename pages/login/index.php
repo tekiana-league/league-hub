@@ -16,7 +16,7 @@
 		$values = true;
 	}
 	
-	$errorText = '';
+	/*$errorText = '';
 	// If both fields are filled, verify against the DB
 	if ($values)
 	{
@@ -73,7 +73,7 @@
 		{
 			$errorText .= 'Unable to connect to database. Please try again later.<br/>';
 		}
-	}
+	}*/
 ?>
 
 <!DOCTYPE html>
