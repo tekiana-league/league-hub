@@ -39,9 +39,9 @@
 			db_disconnect($link);
 			
 			// If the username exists, verify password
-			/*if (count($result) == 1)
+			if (count($result) == 1)
 			{
-				$pass_auth = (password_verify(trim($_POST['password'])), $result[0][1]));
+				$pass_auth = (password_verify(trim($_POST['password']), $result[0][1]));
 			}
 			else
 			{
@@ -67,7 +67,7 @@
 			else
 			{
 				$errorText .= 'Invalid password. Please try a different password.<br/>';
-			}*/
+			}
 		}
 		else
 		{
