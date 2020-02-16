@@ -42,15 +42,15 @@
 			// If the username exists, verify password
 			$pass_auth = false;
 			$userFail = false;
-			$errorText .= strval(count($result)) . '<br/>';
-			$errorText .= strval($result[0]['studentID']) . '<br/>';
-			$errorText .= strval($result[0]['passwordHash']) . '<br/>';
+			/*$errorText .= strval(count($result)) . '<br/>';
+			$errorText .= strval($result[0]['studentid']) . '<br/>';
+			$errorText .= strval($result[0]['passwordhash']) . '<br/>';
 			$errorText .= strval($result[0]['fname']) . '<br/>';
 			$errorText .= strval($result[0]['lname']) . '<br/>';
-			$errorText .= strval($result[0]['role']) . '<br/>';
+			$errorText .= strval($result[0]['role']) . '<br/>';*/
 			if (count($result) == 1)
 			{
-				$pass_auth = (password_verify(trim($_POST['password']), $result[0]['passwordHash']));
+				$pass_auth = (password_verify(trim($_POST['password']), $result[0]['passwordhash']));
 			}
 			else
 			{
@@ -66,7 +66,7 @@
 				
 				// Set session variables
 				$_SESSION['loggedin'] = true;
-				$_SESSION['trainerID'] = $result[0]['studentID'];
+				$_SESSION['trainerID'] = $result[0]['studentid'];
 				$_SESSION['fname'] = $result[0]['fname'];
 				$_SESSION['lname'] = $result[0]['lname'];
 				$_SESSION['role'] = $result[0]['role'];

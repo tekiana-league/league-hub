@@ -28,7 +28,7 @@
 			$stmt = str_replace('$'.strval($counter), '\''.strval($i).'\'', $stmt);
 			$counter++;
 		}
-		echo "<script>console.log(\"PHP: ".$stmt."\");</script>";
+		//echo "<script>console.log(\"PHP: ".$stmt."\");</script>";
 		
 		// Bind the arguments and execute, storing the result
 		$res = pg_query($link, $stmt);
@@ -38,11 +38,12 @@
 		if (!$res || (pg_num_rows($res) == 0))
 		{
 			// Do nothing
-			echo "<script>console.log('PHP: ".'empty array'."');</script>";
+			//echo "<script>console.log('PHP: ".'empty array'."');</script>";
 		}
 		else
 		{
-			echo "<script>console.log('PHP: ".'non-empty array'."');</script>";
+			// Store the result into the array
+			//echo "<script>console.log('PHP: ".'non-empty array'."');</script>";
 			$result = pg_fetch_all($res);
 		}
 		
