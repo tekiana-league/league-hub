@@ -30,9 +30,8 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the statement
-			//$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM trainers WHERE 'studentID' = $1;";
-			$sql = "SELECT * FROM trainers WHERE 'studentID'='1739117'";
-			$errorText .= $sql;
+			//$sql = "SELECT studentID, passwordHash, fname, lname, role FROM trainers WHERE studentID = $1;";
+			$sql = 'SELECT * FROM trainers WHERE studentID = $1';
 			
 			// Attempt to execute the statement
 			$result = db_exec($link, $sql, trim($_POST['trainerID']));

@@ -25,7 +25,7 @@
 		$counter = 1;
 		foreach ($args as $i)
 		{
-			$stmt = str_replace("$".strval($counter), "'".strval($i)."'", $stmt);
+			$stmt = str_replace('$'.strval($counter), '\''.strval($i).'\'', $stmt);
 			$counter++;
 		}
 		echo "<script>console.log(\"PHP: ".$stmt."\");</script>";
