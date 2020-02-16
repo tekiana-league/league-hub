@@ -34,6 +34,6 @@
 		}
 		
 		// Return the result
-		return $result;
+		return $res;
 	}
 ?>

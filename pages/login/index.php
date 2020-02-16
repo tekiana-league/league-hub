@@ -42,6 +42,7 @@
 			$pass_auth = false;
 			$userFail = false;
 			$errorText .= strval(count($result)) . '<br/>';
+			$errorText .= strval(pg_num_rows($result)) . '<br/>';
 			if (count($result) == 1)
 			{
 				$pass_auth = (password_verify(trim($_POST['password']), $result[0][1]));
