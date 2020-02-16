@@ -39,14 +39,14 @@
 			db_disconnect($link);
 			
 			// If the username exists, verify password
-			$pass_auth = false;
+			/*$pass_auth = false;
 			$userFail = false;
 			$errorText .= strval(count($result)) . '<br/>';
-			//$errorText .= strval($result[0]['studentID']) . '<br/>';
-			//$errorText .= strval($result[0]['passwordHash']) . '<br/>';
-			//$errorText .= strval($result[0]['fname']) . '<br/>';
-			//$errorText .= strval($result[0]['lname']) . '<br/>';
-			//$errorText .= strval($result[0]['role']) . '<br/>';
+			$errorText .= strval($result[0]['studentID']) . '<br/>';
+			$errorText .= strval($result[0]['passwordHash']) . '<br/>';
+			$errorText .= strval($result[0]['fname']) . '<br/>';
+			$errorText .= strval($result[0]['lname']) . '<br/>';
+			$errorText .= strval($result[0]['role']) . '<br/>';
 			if (count($result) == 1)
 			{
 				$pass_auth = (password_verify(trim($_POST['password']), $result[0]['passwordHash']));
@@ -76,7 +76,7 @@
 			elseif (!$userFail)
 			{
 				$errorText .= 'Invalid password. Please try a different password.<br/>';
-			}
+			}*/
 		}
 		else
 		{
