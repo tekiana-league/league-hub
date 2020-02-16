@@ -22,11 +22,15 @@
 	function db_exec($link, $statement, $arguments)
 	{
 		// Prepare the statement for execution
-		$stmt = pg_prepare($link, "", $statement);
+		$stmt = pg_prepare($link, 'stmt', $statement);
 		
 		// Bind the arguments and execute, storing the result
-		$res = pg_execute($link, "", $arguments);
+		$res = pg_execute($link, 'stmt', $arguments);
 		
+		// De-allocate the statment
+		pg_query($link, "DEALLOCATE 'stmt';");
+		
+		// Store the result into an array
 		$result = array();
 		if (!$res || (pg_num_rows($res) == 0))
 		{

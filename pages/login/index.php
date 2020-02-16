@@ -31,7 +31,7 @@
 		{
 			// Prepare the statement
 			//$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM trainers WHERE 'studentID' = $1;";
-			$sql = "SELECT * FROM trainers WHERE studentID='$1';";
+			$sql = "SELECT * FROM trainers WHERE studentID = $1;";
 			$errorText .= $sql;
 			
 			// Attempt to execute the statement
