@@ -19,16 +19,19 @@
 		pg_close($link);
 	}
 	
-	function db_exec($link, $statement, $arguments)
+	function db_exec($link, $stmt, ...$args)
 	{
 		// Prepare the statement for execution
-		$stmt = pg_prepare($link, 'stmt', $statement);
+		$counter = 1;
+		foreach ($args as $i)
+		{
+			$stmt = str_replace("$".strval($counter), "'".strval($i)."'", $stmt);
+			$counter++;
+		}
+		echo "<script>console.log('PHP: ".$stmt."');</script>";
 		
 		// Bind the arguments and execute, storing the result
-		$res = pg_execute($link, 'stmt', $arguments);
-		
-		// De-allocate the statment
-		pg_query($link, "DEALLOCATE 'stmt';");
+		$res = pg_query($link, $stmt);
 		
 		// Store the result into an array
 		$result = array();
