@@ -35,7 +35,7 @@
 			$errorText .= $sql;
 			
 			// Attempt to execute the statement
-			$result = db_exec($link, $sql, array(trim($_POST['trainerID'])));
+			$result = db_exec($link, $sql, trim($_POST['trainerID']));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
