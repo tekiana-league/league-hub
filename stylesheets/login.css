@@ -41,6 +41,14 @@ input[type="submit"]
 	color:#0067cf;
 }
 
+@media only screen and (max-device-aspect-ratio: 3/4)
+{
+	#login-form
+	{
+		padding:0% 35%;
+	}
+}
+
 @media only screen and (orientation: landscape)
 {
 	/*Place styles here for landscape-mode devices*/
