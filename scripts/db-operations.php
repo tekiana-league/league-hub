@@ -28,7 +28,7 @@
 		$res = pg_execute($link, "", $arguments);
 		$result = array();
 		
-		for ($i=0; $i<pg_num_rows(); $i++)
+		for ($i=0; $i<pg_num_rows($res); $i++)
 		{
 			array_push($result, pg_fetch_array($res, $i));
 		}
