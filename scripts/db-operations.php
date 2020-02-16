@@ -23,7 +23,7 @@
 	{
 		// Prepare the statement for execution
 		$counter = 1;
-		$stmt = str_replace(';', '');
+		$stmt = str_replace(';', '', $stmt);
 		foreach ($args as $i)
 		{
 			$stmt = str_replace('$'.strval($counter), '\''.strval($i).'\'', $stmt);
