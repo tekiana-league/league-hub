@@ -49,10 +49,10 @@
  </head>
  <body>
 	<div id="menu-show-btn" class="menu-btn" onClick="location.href = '../logout';">
-		<svg id="menu-close-icon" viewBox="0 0 100 100"><image x="20" y="20" width="60" height="60" xlink:href="../images/menu-icons/close.svg"/><svg/>
+		<svg id="menu-close-icon" viewBox="0 0 100 100"><image x="20" y="20" width="60" height="60" xlink:href="../../images/menu-icons/close.svg"/><svg/>
 	</div>
 	<div id="login-container">
-		<img id="league-logo" src="../images/logos/league-logo.png" alt="League Logo"/>
+		<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 		<h1>Trainer Registration</h1>
 		<form id="login-form">
 			<h2 class="input-label">Trainer ID</h2>
