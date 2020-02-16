@@ -33,13 +33,23 @@ h2
 	font-size:3.3vmin;
 }
 
+p
+{
+	font-size:2.25vmin;
+}
+
 #league-logo
 {
 	width:50%;
 	height:auto;
 }
 
-@media only screen and (orientation: landscape)
+#errorText
+{
+	color:#e3313f;
+}
+
+@media only screen and (orientation: landscape) and (not (hover: none))
 {
 	/*Place styles here for landscape-mode devices*/
 	h1
@@ -50,6 +60,11 @@ h2
 	h2
 	{
 		font-size:3vmin;
+	}
+	
+	p
+	{
+		font-size:1.5vmin;
 	}
 	
 	#league-logo
