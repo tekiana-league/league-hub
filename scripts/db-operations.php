@@ -28,7 +28,7 @@
 			$stmt = str_replace("$".strval($counter), "'".strval($i)."'", $stmt);
 			$counter++;
 		}
-		echo "<script>console.log('PHP: ".$stmt."');</script>";
+		echo $stmt;
 		
 		// Bind the arguments and execute, storing the result
 		$res = pg_query($link, $stmt);
