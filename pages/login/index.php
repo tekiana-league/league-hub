@@ -30,7 +30,7 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the statement
-			$sql = "SELECT trainers.studentID, trainers.passwordHash, trainers.fname, trainers.lname, trainers.role FROM trainers WHERE studentID = $1";
+			$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM 'trainers' WHERE 'studentID' = $1";
 			
 			// Attempt to execute the statement
 			$result = db_exec($link, $sql, array(trim($_POST['trainerID'])));
@@ -39,6 +39,8 @@
 			db_disconnect($link);
 			
 			// If the username exists, verify password
+			$pass_auth = false;
+			$userFail = false;
 			if ($result && count($result) == 1)
 			{
 				$pass_auth = (password_verify(trim($_POST['password']), $result[0][1]));
@@ -46,6 +48,7 @@
 			else
 			{
 				$errorText .= 'That Trainer ID does not exist. Please try a different Trainer ID.<br/>';
+				$userFail = true;
 			}
 			
 			// If the password is valid, authenticate the user
@@ -64,7 +67,7 @@
 				// Redirect the user to the homepage
 				header('location: ../../');
 			}
-			else
+			elseif (!$userFail)
 			{
 				$errorText .= 'Invalid password. Please try a different password.<br/>';
 			}
