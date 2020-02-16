@@ -30,10 +30,12 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the statement
-			$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM trainers";// WHERE 'studentID' = $1";
+			$sql = "SELECT * FROM trainers;";
+			//$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM trainers WHERE 'studentID' = $1;";
 			
 			// Attempt to execute the statement
-			$result = db_select($link, $sql, array(trim($_POST['trainerID'])));
+			$result = db_select($link, $sql, array());
+			//$result = db_select($link, $sql, array(trim($_POST['trainerID'])));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
