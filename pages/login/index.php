@@ -102,10 +102,10 @@
 
  </head>
  <body>
-	<div id="login-container" action="./" method="post">
+	<div id="login-container">
 		<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 		<h1>Trainer Login</h1>
-		<form id="login-form">
+		<form id="login-form" action="./" method="post">
 			<h2 class="input-label">Trainer ID</h2>
 			<input type="text" name="trainerID" autocomplete="off"/>
 			<h2 class="input-label">Password</h2>
