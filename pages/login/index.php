@@ -16,7 +16,7 @@
 		$values = true;
 	}
 	
-	/*$errorText = '';
+	$errorText = '';
 	// If both fields are filled, verify against the DB
 	if ($values)
 	{
@@ -24,7 +24,7 @@
 		require_once('../../scripts/db-operations.php');
 		
 		// Open DB connection
-		$link = db_connect();
+		/*$link = db_connect();
 		
 		// Execute statement if connected
 		if (db_verify_conn($link))
@@ -72,8 +72,8 @@
 		else
 		{
 			$errorText .= 'Unable to connect to database. Please try again later.<br/>';
-		}
-	}*/
+		}*/
+	}
 ?>
 
 <!DOCTYPE html>
