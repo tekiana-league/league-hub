@@ -36,6 +36,7 @@
 		{
 			echo "<script>console.log('PHP: ".'non-empty array'."');</script>";
 			$result = pg_fetch_all();
+			echo "<script>console.log('PHP: ".implode(",",$result)."');</script>";
 			/*while ($row = pg_fetch_array($result))
 			{
 				array_push($result, $row);
