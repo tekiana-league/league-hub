@@ -29,7 +29,7 @@
 		
 		if (!$res)
 		{
-			$result = array()
+			$result = array();
 		}
 		else
 		{
