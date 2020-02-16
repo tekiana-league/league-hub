@@ -26,7 +26,12 @@
 		
 		// Bind the arguments and execute, storing the result
 		$res = pg_execute($link, "", $arguments);
-		$result = pg_fetch_all($res);
+		$result = array();
+		
+		for ($i=0; $i<pg_num_rows(); $i++)
+		{
+			array_push($result, pg_fetch_array($res, $i));
+		}
 		
 		// Return the result
 		return $result;
