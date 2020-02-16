@@ -8,6 +8,72 @@
 		// If so, redirect user to homepage
 		header('location: ../../');
 	}
+	
+	// Check to ensure fields are non-empty
+	$values = false;
+	if (!empty(trim($_POST['trainerID'])) && !empty(trim($_POST['password'])))
+	{
+		$values = true;
+	}
+	
+	$errorText = '';
+	// If both fields are filled, verify against the DB
+	if ($values)
+	{
+		// Include DB functions
+		require_once('../../scripts/db-operations.php');
+		
+		// Open DB connection
+		$link = db_connect();
+		
+		// Execute statement if connected
+		if (db_verify_conn($link))
+		{
+			// Prepare the statement
+			$sql = "SELECT trainerID, passwordHash, fname, lname, role FROM trainers WHERE trainerID = $1";
+			
+			// Attempt to execute the statement
+			$result = db_exec($link, $sql, array($_POST['trainerID']));
+			
+			// Disconnect from the DB
+			db_disconnect($link);
+			
+			// If the username exists, verify password
+			if (count($result) == 1)
+			{
+				$pass_auth = (password_verify(trim($_POST['password'])), $result[0][1]));
+			}
+			else
+			{
+				$errorText .= 'That Trainer ID does not exist. Please try a different Trainer ID.<br/>';
+			}
+			
+			// If the password is valid, authenticate the user
+			if ($pass_auth)
+			{
+				// Start a new session
+				session_start();
+				
+				// Set session variables
+				$_SESSION['loggedin'] = true;
+				$_SESSION['trainerID'] = $result[0][0];
+				$_SESSION['fname'] = $result[0][2];
+				$_SESSION['lname'] = $result[0][3];
+				$_SESSION['role'] = $result[0][4];
+				
+				// Redirect the user to the homepage
+				header('location: ../../');
+			}
+			else
+			{
+				$errorText .= 'Invalid password. Please try a different password.<br/>';
+			}
+		}
+		else
+		{
+			$errorText .= 'Unable to connect to database. Please try again later.<br/>';
+		}
+	}
 ?>
 
 <!DOCTYPE html>
