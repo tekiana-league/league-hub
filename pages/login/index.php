@@ -41,7 +41,7 @@
 			// If the username exists, verify password
 			$pass_auth = false;
 			$userFail = false;
-			console.log(count($result));
+			$errorText .= strval(count($result)) . '<br/>';
 			if (!($result === false) && (count($result) == 1))
 			{
 				$pass_auth = (password_verify(trim($_POST['password']), $result[0][1]));
