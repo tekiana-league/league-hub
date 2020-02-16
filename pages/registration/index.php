@@ -1,23 +1,15 @@
 <?php
-	// Allocate variables for login/logout button
-	$btnText = '';
-	$btnElem = '';
+	// Initialize the session
+	session_start()
 	
-	// Include necessary functions
-	require_once('../../scripts/login-verification.php');
-	
-	// Test to see if the user is logged in
-	if (verify_login())
+	// Figure out if 
+	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
 	{
-		// Create logout button
-		$btnText = 'logout';
-		$btnElem = '<text class="menu-btn-text" x="625" y="255">Logout</text>';
+		return false;
 	}
 	else
 	{
-		// Create login button
-		$btnText = 'login';
-		$btnElem = '<text class="menu-btn-text" x="635" y="255">Login</text>';
+		return true;
 	}
 ?>
 
@@ -54,19 +46,19 @@
 	<div id="login-container">
 		<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 		<h1>Trainer Registration</h1>
-		<form id="login-form">
+		<form id="login-form" action="./" method="post">
 			<h2 class="input-label">Trainer ID</h2>
-			<input type="text" name="trainerID" autocomplete="off"/>
+			<input type="text" name="studentID" autocomplete="off"/>
 			<h2 class="input-label">Trainer's First Name</h2>
 			<input type="text" name="fname" autocomplete="off"/>
 			<h2 class="input-label">Trainer's Last Name</h2>
 			<input type="text" name="lname" autocomplete="off"/>
 			<h2 class="input-label">Password</h2>
-			<input type="password" name="password"/>
+			<input type="password" name="passwd"/>
 			<br/>
 			<input type="submit" value="Submit"/>
 		</form>
-		<p id="errorText">There was an error. Please try again at a later date.<br/></p>
+		<p id="errorText"><?php echo $errorText;?><br/></p>
 	</div>
  </body>
  </html>
