@@ -24,13 +24,13 @@
 		require_once('../../scripts/db-operations.php');
 		
 		// Open DB connection
-		/*$link = db_connect();
+		$link = db_connect();
 		
 		// Execute statement if connected
 		if (db_verify_conn($link))
 		{
 			// Prepare the statement
-			$sql = "SELECT trainerID, passwordHash, fname, lname, role FROM trainers WHERE trainerID = $1";
+			/*$sql = "SELECT trainerID, passwordHash, fname, lname, role FROM trainers WHERE trainerID = $1";
 			
 			// Attempt to execute the statement
 			$result = db_exec($link, $sql, array($_POST['trainerID']));
@@ -67,12 +67,12 @@
 			else
 			{
 				$errorText .= 'Invalid password. Please try a different password.<br/>';
-			}
+			}*/
 		}
 		else
 		{
 			$errorText .= 'Unable to connect to database. Please try again later.<br/>';
-		}*/
+		}
 	}
 ?>
 
