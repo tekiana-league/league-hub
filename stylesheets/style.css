@@ -49,7 +49,7 @@ p
 	color:#e3313f;
 }
 
-@media only screen and (orientation: landscape) and (hover: hover) and (pointer: fine)
+@media only screen and (orientation: landscape)
 {
 	/*Place styles here for landscape-mode devices*/
 	h1
