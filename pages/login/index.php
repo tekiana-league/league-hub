@@ -42,11 +42,11 @@
 			$pass_auth = false;
 			$userFail = false;
 			$errorText .= strval(count($result)) . '<br/>';
-			$errorText .= strval($result[0][0]) . '<br/>';
-			$errorText .= strval($result[0][1]) . '<br/>';
-			$errorText .= strval($result[0][2]) . '<br/>';
-			$errorText .= strval($result[0][3]) . '<br/>';
-			$errorText .= strval($result[0][4]) . '<br/>';
+			$errorText .= strval($result[0]['studentID']) . '<br/>';
+			$errorText .= strval($result[0]['passwordHash']) . '<br/>';
+			$errorText .= strval($result[0]['fname']) . '<br/>';
+			$errorText .= strval($result[0]['lname']) . '<br/>';
+			$errorText .= strval($result[0]['role']) . '<br/>';
 			if (count($result) == 1)
 			{
 				$pass_auth = (password_verify(trim($_POST['password']), $result[0][1]));
