@@ -30,16 +30,16 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the statement
-			/*$sql = "SELECT trainerID, passwordHash, fname, lname, role FROM trainers WHERE trainerID = $1";
+			$sql = "SELECT trainerID, passwordHash, fname, lname, role FROM trainers WHERE trainerID = $1";
 			
 			// Attempt to execute the statement
-			$result = db_exec($link, $sql, array($_POST['trainerID']));
+			$result = db_exec($link, $sql, array(trim($_POST['trainerID'])));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
 			
 			// If the username exists, verify password
-			if (count($result) == 1)
+			/*if (count($result) == 1)
 			{
 				$pass_auth = (password_verify(trim($_POST['password'])), $result[0][1]));
 			}
