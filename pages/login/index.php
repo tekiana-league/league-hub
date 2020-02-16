@@ -30,12 +30,10 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the statement
-			$sql = "SELECT * FROM trainers;";
-			//$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM trainers WHERE 'studentID' = $1;";
+			$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM trainers WHERE 'studentID' = $1;";
 			
 			// Attempt to execute the statement
-			$result = db_select($link, $sql, array());
-			//$result = db_select($link, $sql, array(trim($_POST['trainerID'])));
+			$result = db_select($link, $sql, array(trim($_POST['trainerID'])));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
@@ -51,7 +49,7 @@
 			$errorText .= strval($result[0]['role']) . '<br/>';
 			if (count($result) == 1)
 			{
-				$pass_auth = (password_verify(trim($_POST['password']), $result[0][1]));
+				$pass_auth = (password_verify(trim($_POST['password']), $result[0]['passwordHash']));
 			}
 			else
 			{
@@ -67,10 +65,10 @@
 				
 				// Set session variables
 				$_SESSION['loggedin'] = true;
-				$_SESSION['trainerID'] = $result[0][0];
-				$_SESSION['fname'] = $result[0][2];
-				$_SESSION['lname'] = $result[0][3];
-				$_SESSION['role'] = $result[0][4];
+				$_SESSION['trainerID'] = $result[0]['studentID'];
+				$_SESSION['fname'] = $result[0]['fname'];
+				$_SESSION['lname'] = $result[0]['lname'];
+				$_SESSION['role'] = $result[0]['role'];
 				
 				// Redirect the user to the homepage
 				header('location: ../../');

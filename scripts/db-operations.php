@@ -19,7 +19,7 @@
 		pg_close($link);
 	}
 	
-	function db_select($link, $statement, $arguments)
+	function db_exec($link, $statement, $arguments)
 	{
 		// Prepare the statement for execution
 		$stmt = pg_prepare($link, "", $statement);
@@ -30,17 +30,12 @@
 		$result = array();
 		if (!$res || (pg_num_rows($res) == 0))
 		{
-			echo "<script>console.log('PHP: ".'empty array'."');</script>";
+			// Do nothing
+			//echo "<script>console.log('PHP: ".'empty array'."');</script>";
 		}
 		else
 		{
-			echo "<script>console.log('PHP: ".'non-empty array'."');</script>";
 			$result = pg_fetch_all($res);
-			echo "<script>console.log('PHP: ".implode(",",$result)."');</script>";
-			/*while ($row = pg_fetch_array($result))
-			{
-				array_push($result, $row);
-			}*/
 		}
 		
 		// Return the result
