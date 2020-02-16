@@ -19,13 +19,19 @@
 		pg_close($link);
 	}
 	
-	function db_exec($link, $statement, $arguments)
+	function db_select($link, $statement, $arguments)
 	{
 		// Prepare the statement for execution
 		$stmt = pg_prepare($link, "", $statement);
 		
 		// Bind the arguments and execute, storing the result
-		$result = pg_execute($link, "", $arguments);
+		$res = pg_execute($link, "", $arguments);
+		$result = array();
+		
+		while ($row = pg_fetch_array($res))
+		{
+			array_push($row);
+		}
 		
 		// Return the result
 		return $result;

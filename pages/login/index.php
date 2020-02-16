@@ -33,7 +33,7 @@
 			$sql = "SELECT 'studentID', 'passwordHash', 'fname', 'lname', 'role' FROM trainers WHERE 'studentID' = $1";
 			
 			// Attempt to execute the statement
-			$result = db_exec($link, $sql, array(trim($_POST['trainerID'])));
+			$result = db_select($link, $sql, array(trim($_POST['trainerID'])));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
@@ -41,7 +41,7 @@
 			// If the username exists, verify password
 			$pass_auth = false;
 			$userFail = false;
-			if ($result && count($result) == 1)
+			if (!($result === false) && (count($result) == 1))
 			{
 				$pass_auth = (password_verify(trim($_POST['password']), $result[0][1]));
 			}
