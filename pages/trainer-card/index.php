@@ -105,9 +105,10 @@
 		</svg>
 	</div>
 	<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
-	<h1>Trainer <?php echo $trainerID;?>: <?php echo $fname;?> <?php echo $lname;?></h1>
+	<h1>Trainer #<?php echo $trainerID;?>: <?php echo $fname;?> <?php echo $lname;?></h1>
 	<form id="badge-form" action="./" method="post">
-		<input type="submit" value="Award Badge"/>
+		<input type="hidden" name="role" value="123"/>
+		<input type="submit" value="<?php echo $badgeButtonTxt;//Award Badge?>"/>
 	</form>
 	<br/>
 	<form id="search-form" action="./" method="get">
@@ -115,20 +116,32 @@
 		<input type="submit" value="Search"/>
 	</form>
 	<br/>
-	<div class="card-container" onClick="flipCard(this);">
+	<div class="card-container" style="--cardColor:#ee90e6" onClick="flipCard(this);">
 		<div class="trainer-card">
-			<div class="card-front"></div>
-			<div class="card-back"></div>
+			<div class="card-front">
+				<div class="card-front-bg" style="--bgImg:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_qdb-eqJBy8axquiQcHpAkvJa7HmxxogEdEbkW2y_oS8ma4zv')"></div>
+				<div class="card-front-fg" style="--bgImg:url('https://tinyurl.com/s48j9ax')"></div>
+				<div class="card-front-overlay" style="--bgImg:url('https://cdn131.picsart.com/297836242009211.png?r1024x1024')"></div>
+				<div class="card-front-border-container"><div class="card-front-border"></div></div>
+				<p class="card-front-text">935</p>
+			</div>
+			<div class="card-back">
+				<p class="card-back-text">Badges</p>
+			</div>
 		</div>
 	</div>
 	<form id="update-form" action="./" method="post">
-		<input type="text" name="bgimg" placeholder="Trainer Card Background URL"/>
-		<input type="text" name="fgimg" placeholder="Trainer Card Foreground URL"/>
-		<input type="text" name="overlayimg" placeholder="Trainer Card Overlay URL"/>
+		<input type="text" name="bgImg" placeholder="Trainer Card Background URL"/>
+		<input type="text" name="fgImg" placeholder="Trainer Card Foreground URL"/>
+		<input type="text" name="overlayImg" placeholder="Trainer Card Overlay URL"/>
+		<input type="text" name="cardNumber" placeholder="Trainer Card Number (3 digits max.)"/>
+		<br/>
+		<h2 class="input-label">Card Color:</h2>
+		<input type="color" name="cardColor"/>
 		<br/>
 		<input type="submit" value="Update Card"/>
-		<p id="successText">Trainer Card updated sucessfully.<br/></p>
-		<p id="errorText">Unable to update the Trainer Card. Please try again later<br/></p>
+		<p id="successText"><?php echo $successText;?></p>
+		<p id="errorText"><?php echo $errorText;?></p>
 	</form>
  </body>
  </html>
