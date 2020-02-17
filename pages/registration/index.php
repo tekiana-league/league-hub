@@ -21,8 +21,10 @@
 		$displayRegistrationFields = true;
 		// Attempt to add registration to DB
 		// If all fields have values, attempt a DB connection
+		$valid = false;
 		if (!empty(trim($_POST['trainerID'])) && !empty(trim($_POST['fname'])) && !empty(trim($_POST['lname'])) && !empty(trim($_POST['password'])))
 		{
+			$valid = true;
 			// Include DB functions
 			require_once "../../scripts/db_operations.php";
 			
@@ -31,7 +33,7 @@
 		}
 		
 		// If the connection is successful, query the DB for the specified Trainer ID to ensure it doesn't exist
-		if (db_verify_conn($link))
+		if ($valid && db_verify_conn($link))
 		{
 			$trainers = db_exec($link, 'SELECT studentid FROM trainers WHERE studentid = $1', trim($_POST['trainerID']));
 			
