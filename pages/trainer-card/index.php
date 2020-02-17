@@ -50,7 +50,7 @@
  <meta name="author" content="<Author Name Here>"/>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <title>Tekiana League</title>
+ <title>Trainer #<?php echo $trainerID;?></title>
  
  <link rel="shortcut icon" href="../../images/site-icons/gym-logo.png"/>
  
@@ -66,6 +66,7 @@
  <script src="https://kit.fontawesome.com/b657a3b372.js" crossorigin="anonymous"></script>
  
  <script src="../../scripts/menu.js"></script>
+ <script src="../../scripts/trainer-card.js"></script>
 
  </head>
  <body>
@@ -89,11 +90,11 @@
 			<image class="menu-btn-img" x="572" y="270" width="100" height="100" xlink:href="../../images/menu-icons/<?php echo $btnText;?>.svg"/>
 			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75" onClick="location.href='../register';"/>
 			<image class="menu-btn-img" x="497" y="845" width="100" height="100" xlink:href="../../images/menu-icons/registration.svg"/>
-			<circle id="gyms-btn" class="menu-btn" cx="250" cy="325" r="95"/>
+			<circle id="gyms-btn" class="menu-btn" cx="250" cy="325" r="95" onClick="location.href='../gym-leaders';"/>
 			<image class="menu-btn-img" x="95" y="330" width="130" height="130" xlink:href="../../images/menu-icons/gym.svg"/>
-			<circle id="rules-btn" class="menu-btn" cx="800" cy="400" r="95"/>
+			<circle id="rules-btn" class="menu-btn" cx="800" cy="400" r="95" onClick="location.href='../rulebook';"/>
 			<image class="menu-btn-img" x="605" y="527" width="130" height="130" xlink:href="../../images/menu-icons/book.svg"/>
-			<circle id="profile-btn" class="menu-btn" cx="500" cy="500" r="135"/>
+			<circle id="profile-btn" class="menu-btn" cx="500" cy="500" r="135" onClick="location.href='../trainer-card';"/>
 			<image class="menu-btn-img" x="265" y="525" width="180" height="180" xlink:href="../../images/menu-icons/id-card.svg"/>
 			<text class="menu-btn-text" x="410" y="670">Trainer Card</text>
 			<text class="menu-btn-text" x="155" y="455">Gym Leaders</text>
@@ -103,7 +104,7 @@
 			<text class="menu-btn-text" x="630" y="835">Registration Mode</text>
 		</svg>
 	</div>
-	<img id="league-logo" src="../images/logos/league-logo.png" alt="League Logo"/>
+	<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 	<h1>Trainer <?php echo $trainerID;?>: <?php echo $fname;?> <?php echo $lname;?></h1>
 	<form id="badge-form" action="./" method="post">
 		<input type="submit" value="Award Badge"/>
@@ -114,7 +115,12 @@
 		<input type="submit" value="Search"/>
 	</form>
 	<br/>
-	<div class="card-container"></div>
+	<div class="card-container" onClick="flipCard(this);">
+		<div class="trainer-card">
+			<div class="card-front"></div>
+			<div class="card-back"></div>
+		</div>
+	</div>
 	<form id="update-form" action="./" method="post">
 		<input type="text" name="bgimg" placeholder="Trainer Card Background URL"/>
 		<input type="text" name="fgimg" placeholder="Trainer Card Foreground URL"/>
