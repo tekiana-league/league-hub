@@ -171,6 +171,7 @@
 	$pageTitle = '';
 	$submitValue = '';
 	$formContent = '';
+	$tooltip = '';
 	if ($displayRegistrationFields && $changePassword)
 	{
 		// Display the appropriate password change fields
@@ -182,6 +183,7 @@
 			<input type="password" name="oldpassword"/>
 			<h2 class="input-label">New Password</h2>
 			<input type="password" name="newpassword"/>';
+		$tooltip = '<p>Enter \'changepassword\' in the field above if you want to change your password.</p>';
 	}
 	elseif ($displayRegistrationFields)
 	{
@@ -247,7 +249,7 @@
 		</form>
 		<p id="successText"><?php echo $successText;?></p>
 		<p id="errorText"><?php echo $errorText;?></p>
-		<p>Enter 'changepassword' in the field above if you want to change your password.</p>
+		<?php echo $tooltip;?>
 	</div>
  </body>
  </html>
