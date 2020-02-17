@@ -2,7 +2,7 @@
 	// Initialize the session
 	session_start();
 	
-	// De-alocate all session variables
+	// De-allocate all session variables
 	$_SESSION = array();
 	
 	// Destroy the session

@@ -1,12 +1,13 @@
 <?php
+	// Initialize the session
+	session_start();
+	
 	// Test to see if registration mode is still enabled
 	if (isset($_SESSION['registrationModeEnabled']) && $_SESSION['registrationModeEnabled'] == true)
 	{
-		// If registration mode is enabled, destroy their session
-		// Start a new session
-		session_start();
+		// If registration mode is enabled, destroy the session
 	
-		// De-alocate all session variables
+		// De-allocate all session variables
 		$_SESSION = array();
 		
 		// Destroy the session
