@@ -14,10 +14,56 @@
 	}
 	
 	$displayRegistrationFields = false;
+	$successText = '';
+	$errorText = '';
 	if ($registrationMode)
 	{
 		$displayRegistrationFields = true;
 		// Attempt to add registration to DB
+		// If all fields have values, attempt a DB connection
+		if (!empty(trim($_POST['trainerID'])) && !empty(trim($_POST['fname'])) && !empty(trim($_POST['lname'])) && !empty(trim($_POST['password'])))
+		{
+			// Include DB functions
+			require_once "../../scripts/db_operations.php";
+			
+			// Open a DB connection
+			$link = db_connect();
+		}
+		
+		// If the connection is successful, query the DB for the specified Trainer ID to ensure it doesn't exist
+		if (db_verify_conn($link))
+		{
+			$trainers = db_exec($link, 'SELECT studentid FROM trainers WHERE studentid = $1', trim($_POST['trainerID']));
+			
+			// If there are no records, insert a new one
+			if (count($trainers) == 0)
+			{
+				// Prepare the statement
+				$sql = 'INSERT INTO trainers (studentid, fname, lname, passwordhash) VALUES ($1, $2, $3, $4)';
+				
+				// Execute the statement
+				$result = db_exec($link, $sql, trim($_POST['trainerID']), trim($_POST['fname']), trim($_POST['lname']), trim($_POST['password']));
+				
+				// Verify success
+				if ($result)
+				{
+					$successText .= 'Trainer successfully registered.<br/>';
+				}
+				else
+				{
+					$errorText .= 'Something went wrong while trying to add the Trainer. Please try again later.<br/>';
+				}
+			}
+			else
+			{
+				$errorText .= 'That Trainer ID already exists. Please contact League staff for assistance.<br/>';
+			}
+			db_disconnect($link);
+		}
+		else
+		{
+			$errorText .= 'Unable to connect to the database. Please try again later.<br/>';
+		}
 	}
 	else
 	{
@@ -44,13 +90,13 @@
 		$pageTitle = 'Trainer Registration';
 		$submitValue = 'Submit';
 		$formContent = '<h2 class="input-label">Trainer ID</h2>
-			<input type="text" name="studentID" autocomplete="off"/>
+			<input type="text" name="trainerID" autocomplete="off"/>
 			<h2 class="input-label">Trainer\'s First Name</h2>
 			<input type="text" name="fname" autocomplete="off"/>
 			<h2 class="input-label">Trainer\'s Last Name</h2>
 			<input type="text" name="lname" autocomplete="off"/>
 			<h2 class="input-label">Password</h2>
-			<input type="password" name="passwd"/>';
+			<input type="password" name="password"/>';
 	}
 	else
 	{

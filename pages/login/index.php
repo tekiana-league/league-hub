@@ -90,7 +90,7 @@
 		}
 		else
 		{
-			$errorText .= 'Unable to connect to database. Please try again later.<br/>';
+			$errorText .= 'Unable to connect to the database. Please try again later.<br/>';
 		}
 	}
 ?>
