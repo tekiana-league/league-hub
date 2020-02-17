@@ -12,7 +12,7 @@
 	else
 	{
 		$registrationMode = true;
-		if (isset($_SESSION['changePasswordMode']) && $_SESSION['ChangePasswordMode'] == true)
+		if (isset($_SESSION['changePasswordMode']) && $_SESSION['changePasswordMode'] == true)
 		{
 			$changePassword = true;
 		}
@@ -156,7 +156,7 @@
 			
 			// Set session variables
 			$_SESSION['registrationModeEnabled'] = true;
-			$_SESSION['ChangePasswordMode'] = true;
+			$_SESSION['changePasswordMode'] = true;
 			
 			// Enable password change page content
 			$displayRegistrationFields = true;
