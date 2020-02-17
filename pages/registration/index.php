@@ -1,6 +1,6 @@
 <?php
 	// Initialize the session
-	session_start()
+	session_start();
 	
 	// Figure out if registration mode was enabled
 	$registrationMode = false;
