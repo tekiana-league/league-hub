@@ -183,7 +183,6 @@
 			<input type="password" name="oldpassword"/>
 			<h2 class="input-label">New Password</h2>
 			<input type="password" name="newpassword"/>';
-		$tooltip = '<p>Enter \'changepassword\' in the field above if you want to change your password.</p>';
 	}
 	elseif ($displayRegistrationFields)
 	{
@@ -206,6 +205,7 @@
 		$submitValue = 'Unlock';
 		$formContent = '<h2 class="input-label">Registration Unlock Password</h2>
 			<input type="password" name="registrationPassword"/>';
+		$tooltip = '<p>Enter \'changepassword\' in the field above if you want to change your password.</p>';
 	}
 ?>
 
