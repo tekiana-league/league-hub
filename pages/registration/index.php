@@ -44,7 +44,7 @@
 				$sql = 'INSERT INTO trainers (studentid, fname, lname, passwordhash) VALUES ($1, $2, $3, $4)';
 				
 				// Execute the statement
-				$result = db_exec($link, $sql, trim($_POST['trainerID']), trim($_POST['fname']), trim($_POST['lname']), trim($_POST['password']));
+				$result = db_exec($link, $sql, trim($_POST['trainerID']), trim($_POST['fname']), trim($_POST['lname']), password_hash(trim($_POST['password']), PASSWORD_DEFAULT));
 				
 				// Verify success
 				if ($result)
@@ -148,7 +148,8 @@
 			<br/>
 			<input type="submit" value="<?php echo $submitValue;?>"/>
 		</form>
-		<p id="errorText"><?php echo $errorText;?><br/></p>
+		<p id="successText"><?php echo $successText;?></p>
+		<p id="errorText"><?php echo $errorText;?></p>
 	</div>
  </body>
  </html>

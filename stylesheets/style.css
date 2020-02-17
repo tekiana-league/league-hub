@@ -44,9 +44,17 @@ p
 	height:auto;
 }
 
+#errorText, #successText
+{
+	height:auto;
+}
 #errorText
 {
 	color:#e3313f;
+}
+#successText
+{
+	color:#15bf6d;
 }
 
 @media only screen and (orientation: landscape)
