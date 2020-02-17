@@ -26,7 +26,7 @@
 		{
 			$valid = true;
 			// Include DB functions
-			require_once "../../scripts/db_operations.php";
+			require_once('../../scripts/db-operations.php');
 			
 			// Open a DB connection
 			$link = db_connect();
