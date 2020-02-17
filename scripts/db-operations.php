@@ -19,7 +19,7 @@
 		pg_close($link);
 	}
 	
-	function db_exec($link, $stmt, ...$args)
+	function db_select($link, $stmt, ...$args)
 	{
 		// Prepare the statement for execution
 		$counter = 1;
@@ -36,10 +36,6 @@
 		
 		// Store the result into an array
 		$result = array();
-		if (($res === true) || ($res === false))
-		{
-			return $res;
-		}
 		elseif (!$res || (pg_num_rows($res) == 0))
 		{
 			// Do nothing
@@ -54,5 +50,31 @@
 		
 		// Return the result
 		return $result;
+	}
+	
+	function db_exec($link, $stmt, ...$args)
+	{
+		// Prepare the statement for execution
+		$counter = 1;
+		$stmt = str_replace(';', '', $stmt);
+		foreach ($args as $i)
+		{
+			$stmt = str_replace('$'.strval($counter), '\''.strval($i).'\'', $stmt);
+			$counter++;
+		}
+		//echo "<script>console.log(\"PHP: ".$stmt."\");</script>";
+		
+		// Bind the arguments and execute, storing the result
+		$res = pg_query($link, $stmt);
+		
+		// Return the appropriate boolean result
+		if (!$res)
+		{
+			return false;
+		}
+		else
+		{
+			return true:
+		}
 	}
 ?>

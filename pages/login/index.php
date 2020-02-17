@@ -49,7 +49,7 @@
 			$sql = 'SELECT * FROM trainers WHERE studentID = $1';
 			
 			// Attempt to execute the statement
-			$result = db_exec($link, $sql, trim($_POST['trainerID']));
+			$result = db_select($link, $sql, trim($_POST['trainerID']));
 			
 			// Disconnect from the DB
 			db_disconnect($link);

@@ -35,7 +35,7 @@
 		// If the connection is successful, query the DB for the specified Trainer ID to ensure it doesn't exist
 		if ($valid && db_verify_conn($link))
 		{
-			$trainers = db_exec($link, 'SELECT studentid FROM trainers WHERE studentid = $1', trim($_POST['trainerID']));
+			$trainers = db_select($link, 'SELECT studentid FROM trainers WHERE studentid = $1', trim($_POST['trainerID']));
 			
 			// If there are no records, insert a new one
 			if (count($trainers) == 0)
