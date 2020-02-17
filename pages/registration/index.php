@@ -72,7 +72,7 @@
 				$sql = 'UPDATE trainers set passwordhash = $1 WHERE studentid = $2';
 				
 				// Execute the statement
-				$result = db_exec($link, $sql, password_hash(trim($_POST['newpassword'])), trim($_POST['trainerID']));
+				$result = db_exec($link, $sql, password_hash(trim($_POST['newpassword']), PASSWORD_DEFAULT), trim($_POST['trainerID']));
 				
 				// Verify success
 				if ($result)
