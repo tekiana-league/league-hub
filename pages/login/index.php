@@ -1,13 +1,16 @@
 <?php
 	// Test to see if registration mode is still enabled
-	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
+	if (isset($_SESSION['registrationModeEnabled']) && $_SESSION['registrationModeEnabled'] == true)
 	{
-		// If registration mode is not enabled, do nothing
-	}
-	else
-	{
-		// Otherwise, redirect user to logout page
-		header('location: ./pages/logout');
+		// If registration mode is enabled, destroy their session
+		// Start a new session
+		session_start();
+	
+		// De-alocate all session variables
+		$_SESSION = array();
+		
+		// Destroy the session
+		session_destroy();
 	}
 	
 	// Include necessary functions
