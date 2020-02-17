@@ -2,20 +2,26 @@
 	// Initialize the session
 	session_start();
 	
-	// Figure out which mode was enabled
+	// Figure out if registration mode was enabled
 	$registrationMode = false;
-	$changePassword = false;
 	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
 	{
 		// Do nothing
 	}
-	elseif (isset($_SESSION['changePasswordMode']) && $_SESSION['changePasswordMode'] == true)
-	{
-		$changePassword = true;
-	}
-	elseif (!$changePassword)
+	else
 	{
 		$registrationMode = true;
+	}
+	
+	// Figure out if password change mode was enabled
+	$changePassword = false;
+	if (!isset($_SESSION['changePasswordMode']) || $_SESSION['changePasswordMode'] !== true)
+	{
+		// Do nothing
+	}
+	else
+	{
+		$changePassword = true;
 	}
 	
 	$displayRegistrationFields = false;
