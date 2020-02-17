@@ -21,7 +21,70 @@
 	$displayRegistrationFields = false;
 	$successText = '';
 	$errorText = '';
-	if ($registrationMode)
+	if ($registrationMode && $changePassword)
+	{
+		// If all fields have values, open a DB connection
+		$valid = false;
+		if (!empty(trim($_POST['trainerID'])) && !empty(trim($_POST['oldpassword'])) && !empty(trim($_POST['newpassword'])))
+		{
+			$valid = true;
+			// Include DB functions
+			require_once('../../scripts/db-operations.php');
+			
+			// Open a DB connection
+			$link = db_connect();
+		}
+		
+		// If the connection is successful, get ready to validate the user
+		if ($valid && db_verify_conn($link))
+		{
+			// Query the username to get their password
+			$trainer = db_select($link, 'SELECT studentid, passwordhash FROM trainers WHERE studentid = $1', trim($_POST['trainerID']));
+			
+			// If the user exists, verify the password
+			$auth = false;
+			if (count($trainer) == 1)
+			{
+				if (password_verify(trim($_POST['oldpassword']), $trainer[0]['passwordhash']))
+				{
+					$auth = true;
+				}
+				else
+				{
+					$errorText .= 'The trainer\'s old password is incorrect. Please try a different password.<br/>';
+				}
+			}
+			else
+			{
+				$errorText .= 'That Trainer ID does not exist. Please try a different Trainer ID.<br/>';
+			}
+			
+			// If the password was verified, update the record
+			if ($auth)
+			{
+				// Prepare the statement
+				$sql = 'UPDATE trainers set passwordhash = $1 WHERE studentid = $2';
+				
+				// Execute the statement
+				$result = db_exec($link, $sql, password_hash(trim($_POST['newpassword'])), trim($_POST['trainerID']));
+				
+				// Verify success
+				if ($result)
+				{
+					$successText .= 'Password successfully updated.<br/>';
+				}
+				else
+				{
+					$errorText .= 'Something went wrong while trying to update the Trainer\'s password. Please try again later.<br/>';
+				}
+			}
+		}
+		else
+		{
+			$errorText .= 'Unable to connect to the database. Please try again later.<br/>';
+		}
+	}
+	elseif ($registrationMode)
 	{
 		$displayRegistrationFields = true;
 		// Attempt to add registration to DB
@@ -86,7 +149,7 @@
 			// Enable registration page content
 			$displayRegistrationFields = true;
 		}
-		elseif (strtolower(trim($_POST['registrationPassword'])) == 'passwordchange')
+		elseif (strtolower(trim($_POST['registrationPassword'])) == 'changepassword')
 		{
 			// Start a new session
 			session_start();
@@ -184,6 +247,7 @@
 		</form>
 		<p id="successText"><?php echo $successText;?></p>
 		<p id="errorText"><?php echo $errorText;?></p>
+		<p>Enter 'changepassword' in the field above if you want to change your password.</p>
 	</div>
  </body>
  </html>
