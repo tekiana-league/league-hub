@@ -81,7 +81,7 @@
 			// Enable registration page content
 			$displayRegistrationFields = true;
 		}
-		else
+		elseif (!empty(trim($_POST['registrationPassword'])))
 		{
 			$errorText .= 'Invalid unlock password. Please try again.<br/>';
 		}
