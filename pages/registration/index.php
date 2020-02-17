@@ -41,10 +41,10 @@
 			if (count($trainers) == 0)
 			{
 				// Prepare the statement
-				$sql = 'INSERT INTO trainers (studentid, fname, lname, passwordhash) VALUES ($1, $2, $3, $4)';
+				$sql = 'INSERT INTO trainers (studentid, fname, lname, passwordhash, badges) VALUES ($1, $2, $3, $4, $5)';
 				
 				// Execute the statement
-				$result = db_exec($link, $sql, trim($_POST['trainerID']), trim($_POST['fname']), trim($_POST['lname']), password_hash(trim($_POST['password']), PASSWORD_DEFAULT));
+				$result = db_exec($link, $sql, trim($_POST['trainerID']), trim($_POST['fname']), trim($_POST['lname']), password_hash(trim($_POST['password']), PASSWORD_DEFAULT), '000000000000000000');
 				
 				// Verify success
 				if ($result)
