@@ -1,0 +1,132 @@
+/*General styles go here*/
+#league-logo
+{
+	position:relative;
+}
+
+h1
+{
+	position:relative;
+	margin-bottom:2.5vmin;
+}
+
+.card-container
+{
+	display:inline-block;
+	position:relative;
+	width:70vmin;
+	height:87.5vmin;
+	margin:5vmin;
+	background-color:#555;
+}
+
+.trainer-card
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:#00f;
+	transform-style:preserve-3d;
+	transition:all .75s;
+}
+.trainer-card.flip
+{
+	transform: rotateY(180deg);
+}
+
+.card-front, .card-back
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	backface-visibility:hidden;
+}
+.card-front
+{
+	background-color:#f00;
+}
+.card-back
+{
+	background-color:#0f0;
+	transform: rotateY(180deg);
+}
+
+input[type="text"]
+{
+	width:50%;
+	margin:1vmin 0vmin;
+}
+
+#badge-form
+{
+	margin-top:-2.5vmin;
+	margin-bottom:-4.5vmin;
+}
+
+@media only screen and (orientation: landscape)
+{
+	/*Place styles here for landscape-mode devices*/
+	#league-logo
+	{
+		display:inline-block;
+		left:-5vmin;
+	}
+	
+	h1
+	{
+		display:inline-block;
+		top:-12vmin;
+	}
+	
+	.card-container
+	{
+		width:40vmin;
+		height:50vmin;
+	}
+	
+	#search-form
+	{
+		margin-top:-3.5vmin;
+		margin-bottom:-2.5vmin;
+		padding:0% 15%;
+	}
+	
+	#search-form>input[type="text"]
+	{
+		margin-right:1vmin;
+	}
+	
+	#update-form
+	{
+		display:inline-block;
+		position:relative;
+		top:-15vmin;
+	}
+	
+	#badge-form
+	{
+		position:relative;
+		top:-7.5vmin;
+		width:50%;
+		margin-top:-5vmin;
+		margin-bottom:0vmin;
+		margin-left:35%;
+	}
+	
+	input[type="submit"]
+	{
+		margin-top:1vmin;
+	}
+	
+	@media only screen and (max-device-aspect-ratio: 4/3)
+	{
+		#update-form
+		{
+			top:0;
+		}
+	}
+}

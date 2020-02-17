@@ -46,7 +46,6 @@
 		{
 			// Prepare the statement
 			$sql = "SELECT studentID, passwordHash, fname, lname, role FROM trainers WHERE studentID = $1;";
-			//$sql = 'SELECT * FROM trainers WHERE studentID = $1';
 			
 			// Attempt to execute the statement
 			$result = db_select($link, $sql, trim($_POST['trainerID']));
