@@ -1,4 +1,15 @@
 <?php
+	// Test to see if registration mode is still enabled
+	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
+	{
+		// If registration mode is not enabled, do nothing
+	}
+	else
+	{
+		// Otherwise, redirect user to logout page
+		header('location: ./pages/logout');
+	}
+	
 	// Include necessary functions
 	require_once('../../scripts/login-verification.php');
 	
@@ -42,12 +53,6 @@
 			// If the username exists, verify password
 			$pass_auth = false;
 			$userFail = false;
-			/*$errorText .= strval(count($result)) . '<br/>';
-			$errorText .= strval($result[0]['studentid']) . '<br/>';
-			$errorText .= strval($result[0]['passwordhash']) . '<br/>';
-			$errorText .= strval($result[0]['fname']) . '<br/>';
-			$errorText .= strval($result[0]['lname']) . '<br/>';
-			$errorText .= strval($result[0]['role']) . '<br/>';*/
 			if (count($result) == 1)
 			{
 				$pass_auth = (password_verify(trim($_POST['password']), $result[0]['passwordhash']));

@@ -1,4 +1,15 @@
 <?php
+	// Test to see if registration mode is still enabled
+	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
+	{
+		// If registration mode is not enabled, do nothing
+	}
+	else
+	{
+		// Otherwise, redirect user to logout page
+		header('location: ./pages/logout');
+	}
+	
 	// Allocate variables for login/logout button
 	$btnText = '';
 	$btnElem = '';

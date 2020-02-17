@@ -2,14 +2,52 @@
 	// Initialize the session
 	session_start()
 	
-	// Figure out if 
+	// Figure out if registration mode was enabled
+	$registrationMode = false;
 	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
 	{
-		return false;
+		// Do nothing
 	}
 	else
 	{
-		return true;
+		$registrationMode = true;
+	}
+	
+	$displayRegistrationFields = false;
+	if ($registrationMode)
+	{
+		$displayRegistrationFields = true;
+		// Attempt to add registration to DB
+	}
+	else
+	{
+		// Verify the registration password
+		if (password_verify(trim($_POST['registrationPassword']), '$2y$10$MSpgQOW1jicRGulq22poIOTUrlG2mMJyMOombbMijw3Xu3zbcINoK'))
+		{
+			// Start a new session
+			session_start();
+			
+			// Set session variables
+			$_SESSION['registrationModeEnabled'] = true;
+			
+			// Enable registration page content
+			$displayRegistrationFields = true;
+		}
+	}
+	
+	$pageTitle = '';
+	$submitValue = '';
+	if ($displayRegistrationFields)
+	{
+		// Display the appropriate registration fields
+		$pageTitle = 'Trainer Registration';
+		$submitValue = 'Submit';
+	}
+	else
+	{
+		// Display the registration unlock prompt
+		$pageTitle = 'Unlock Trainer Registration';
+		$submitValue = 'Unlock';
 	}
 ?>
 
@@ -45,7 +83,7 @@
 	</div>
 	<div id="login-container">
 		<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
-		<h1>Trainer Registration</h1>
+		<h1><?php echo $pageTitle;?></h1>
 		<form id="login-form" action="./" method="post">
 			<h2 class="input-label">Trainer ID</h2>
 			<input type="text" name="studentID" autocomplete="off"/>
@@ -56,7 +94,7 @@
 			<h2 class="input-label">Password</h2>
 			<input type="password" name="passwd"/>
 			<br/>
-			<input type="submit" value="Submit"/>
+			<input type="submit" value="<?php echo $submitValue;?>"/>
 		</form>
 		<p id="errorText"><?php echo $errorText;?><br/></p>
 	</div>
