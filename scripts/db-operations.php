@@ -36,7 +36,11 @@
 		
 		// Store the result into an array
 		$result = array();
-		if (!$res || (pg_num_rows($res) == 0))
+		if (($res === true) || ($res === false))
+		{
+			return $res;
+		}
+		elseif (!$res || (pg_num_rows($res) == 0))
 		{
 			// Do nothing
 			//echo "<script>console.log('PHP: ".'empty array'."');</script>";
