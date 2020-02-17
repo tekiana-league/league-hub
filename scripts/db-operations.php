@@ -74,7 +74,7 @@
 		}
 		else
 		{
-			return true:
+			return true;
 		}
 	}
 ?>
