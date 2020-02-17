@@ -2,30 +2,26 @@
 	// Initialize the session
 	session_start();
 	
-	// Figure out if registration mode was enabled
+	// Figure out which mode was enabled
 	$registrationMode = false;
 	$changePassword = false;
 	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
 	{
 		// Do nothing
 	}
-	else
+	elseif (isset($_SESSION['changePasswordMode']) && $_SESSION['changePasswordMode'] == true)
+	{
+		$changePassword = true;
+	}
+	elseif (!$changePassword)
 	{
 		$registrationMode = true;
-		if (!isset($_SESSION['changePasswordMode']) || $_SESSION['changePasswordMode'] !== true)
-		{
-			// Do nothing
-		}
-		else
-		{
-			$changePassword = true;
-		}
 	}
 	
 	$displayRegistrationFields = false;
 	$successText = '';
 	$errorText = '';
-	if ($registrationMode && $changePassword)
+	if ($changePassword)
 	{
 		// If all fields have values, open a DB connection
 		$valid = false;
@@ -159,11 +155,9 @@
 			session_start();
 			
 			// Set session variables
-			$_SESSION['registrationModeEnabled'] = true;
 			$_SESSION['changePasswordMode'] = true;
 			
 			// Enable password change page content
-			$displayRegistrationFields = true;
 			$changePassword = true;
 		}
 		elseif (!empty(trim($_POST['registrationPassword'])))
@@ -176,7 +170,7 @@
 	$submitValue = '';
 	$formContent = '';
 	$tooltip = '';
-	if ($displayRegistrationFields && $changePassword)
+	if ($changePassword)
 	{
 		// Display the appropriate password change fields
 		$pageTitle = 'Trainer Password Change';
