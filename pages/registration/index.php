@@ -81,6 +81,10 @@
 			// Enable registration page content
 			$displayRegistrationFields = true;
 		}
+		else
+		{
+			$errorText .= 'Invalid unlock password. Please try again.<br/>';
+		}
 	}
 	
 	$pageTitle = '';
