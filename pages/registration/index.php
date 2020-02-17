@@ -22,7 +22,7 @@
 	else
 	{
 		// Verify the registration password
-		if (password_verify(trim($_POST['registrationPassword']), '$2y$10$MSpgQOW1jicRGulq22poIOTUrlG2mMJyMOombbMijw3Xu3zbcINoK'))
+		if (password_verify(trim($_POST['registrationPassword'])), '$2y$10$MSpgQOW1jicRGulq22poIOTUrlG2mMJyMOombbMijw3Xu3zbcINoK')
 		{
 			// Start a new session
 			session_start();
