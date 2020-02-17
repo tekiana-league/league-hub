@@ -4,6 +4,7 @@
 	
 	// Figure out if registration mode was enabled
 	$registrationMode = false;
+	$changePassword = false;
 	if (!isset($_SESSION['registrationModeEnabled']) || $_SESSION['registrationModeEnabled'] !== true)
 	{
 		// Do nothing
@@ -11,6 +12,10 @@
 	else
 	{
 		$registrationMode = true;
+		if (isset($_SESSION['changePasswordMode']) && $_SESSION['ChangePasswordMode'] == true)
+		{
+			$changePassword = true;
+		}
 	}
 	
 	$displayRegistrationFields = false;
@@ -85,12 +90,37 @@
 		{
 			$errorText .= 'Invalid unlock password. Please try again.<br/>';
 		}
+		else
+		{
+			// Start a new session
+			session_start();
+			
+			// Set session variables
+			$_SESSION['registrationModeEnabled'] = true;
+			$_SESSION['ChangePasswordMode'] = true;
+			
+			// Enable password change page content
+			$displayRegistrationFields = true;
+			$changePassword = true;
+		}
 	}
 	
 	$pageTitle = '';
 	$submitValue = '';
 	$formContent = '';
-	if ($displayRegistrationFields)
+	if ($displayRegistrationFields && $changePassword)
+	{
+		// Display the appropriate password change fields
+		$pageTitle = 'Trainer Password Change';
+		$submitValue = 'Submit';
+		$formContent = '<h2 class="input-label">Trainer ID</h2>
+			<input type="text" name="trainerID" autocomplete="off"/>
+			<h2 class="input-label">Old Password</h2>
+			<input type="password" name="oldpassword"/>
+			<h2 class="input-label">New Password</h2>
+			<input type="password" name="newpassword"/>';
+	}
+	elseif ($displayRegistrationFields)
 	{
 		// Display the appropriate registration fields
 		$pageTitle = 'Trainer Registration';
