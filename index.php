@@ -3,7 +3,7 @@
 	session_start();
 	
 	// Test to see if registration mode is still enabled
-	if (isset($_SESSION['registrationModeEnabled']) && $_SESSION['registrationModeEnabled'] == true)
+	if ((isset($_SESSION['registrationModeEnabled']) && $_SESSION['registrationModeEnabled'] == true) || (isset($_SESSION['changePasswordMode']) && $_SESSION['changePasswordMode'] == true))
 	{
 		// If registration mode is enabled, destroy the session
 		// De-allocate all session variables
