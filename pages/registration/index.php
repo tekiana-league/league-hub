@@ -37,17 +37,28 @@
 	
 	$pageTitle = '';
 	$submitValue = '';
+	$formContent = '';
 	if ($displayRegistrationFields)
 	{
 		// Display the appropriate registration fields
 		$pageTitle = 'Trainer Registration';
 		$submitValue = 'Submit';
+		$formContent = '<h2 class="input-label">Trainer ID</h2>
+			<input type="text" name="studentID" autocomplete="off"/>
+			<h2 class="input-label">Trainer\'s First Name</h2>
+			<input type="text" name="fname" autocomplete="off"/>
+			<h2 class="input-label">Trainer\'s Last Name</h2>
+			<input type="text" name="lname" autocomplete="off"/>
+			<h2 class="input-label">Password</h2>
+			<input type="password" name="passwd"/>';
 	}
 	else
 	{
 		// Display the registration unlock prompt
 		$pageTitle = 'Unlock Trainer Registration';
 		$submitValue = 'Unlock';
+		$formContent = '<h2 class="input-label">Registration Unlock Password</h2>
+			<input type="password" name="registrationPassword"/>';
 	}
 ?>
 
@@ -85,14 +96,7 @@
 		<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 		<h1><?php echo $pageTitle;?></h1>
 		<form id="login-form" action="./" method="post">
-			<h2 class="input-label">Trainer ID</h2>
-			<input type="text" name="studentID" autocomplete="off"/>
-			<h2 class="input-label">Trainer's First Name</h2>
-			<input type="text" name="fname" autocomplete="off"/>
-			<h2 class="input-label">Trainer's Last Name</h2>
-			<input type="text" name="lname" autocomplete="off"/>
-			<h2 class="input-label">Password</h2>
-			<input type="password" name="passwd"/>
+			<?php echo $formContent;?>
 			<br/>
 			<input type="submit" value="<?php echo $submitValue;?>"/>
 		</form>
