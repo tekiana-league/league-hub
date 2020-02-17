@@ -12,7 +12,11 @@
 	else
 	{
 		$registrationMode = true;
-		if (isset($_SESSION['changePasswordMode']) && $_SESSION['changePasswordMode'] == true)
+		if (!isset($_SESSION['changePasswordMode']) || $_SESSION['changePasswordMode'] !== true)
+		{
+			// Do nothing
+		}
+		else
 		{
 			$changePassword = true;
 		}
