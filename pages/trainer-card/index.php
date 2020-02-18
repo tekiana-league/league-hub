@@ -106,7 +106,7 @@
 	$badgeButton = '';
 	if ($displayBadgeBtn)
 	{
-		$btnText = ''
+		$btnText = '';
 		if ($_SESSION['role'] == 2)
 		{
 			$btnText = 'Steal Badge';
