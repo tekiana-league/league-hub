@@ -37,6 +37,7 @@
 	
 	$displayCustomization = false;
 	$displayBadgeBtn = false;
+	$postLink = '';
 	// If the Trainer's role is 2 or higher, display the action button
 	if (intval($_SESSION['role']) > 2)
 	{
@@ -84,6 +85,9 @@
 				$cardNum = $result[0]['trainernum'];
 				$cardColor = $result[0]['bordercolor'];
 				
+				// Set destination for POST requests
+				$postLink = '?trainerID='.$trainerNum;
+				
 				// If the trainer's ID matches, allow them to customize their card
 				if ($trainerNum == $_SESSION['trainerID'])
 				{
@@ -105,7 +109,7 @@
 	$cardCustomization = '';
 	if ($displayCustomization)
 	{
-		$cardCustomization = '<form id="update-form" action="./" method="post">
+		$cardCustomization = '<form id="update-form" action="./'.$postLink.'" method="post">
 			<input type="text" name="bgImg" placeholder="Trainer Card Background URL"/>
 			<input type="text" name="fgImg" placeholder="Trainer Card Foreground URL"/>
 			<input type="text" name="overlayImg" placeholder="Trainer Card Overlay URL"/>
@@ -135,7 +139,7 @@
 		{
 			$btnText = 'Award Badge';
 		}
-		$badgeButton = '<form id="badge-form" action="./" method="post">
+		$badgeButton = '<form id="badge-form" action="./'.$postLink.'" method="post">
 			<input type="hidden" name="role" value="123"/>
 			<input type="submit" value="'.$btnText.'"/>
 		</form>';
