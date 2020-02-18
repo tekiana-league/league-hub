@@ -127,22 +127,22 @@
 	$badgeButton = '';
 	if ($displayBadgeBtn)
 	{
-		$btnText = '';
+		$badgeBtnText = '';
 		if (intval($_SESSION['role']) == 2)
 		{
-			$btnText = 'Steal Badge';
+			$badgeBtnText = 'Steal Badge';
 			if ($trainerHasBadgeStolen)
 			{
-				$btnText = 'Return Badge';
+				$badgeBtnText = 'Return Badge';
 			}
 		}
 		else
 		{
-			$btnText = 'Award Badge';
+			$badgeBtnText = 'Award Badge';
 		}
 		$badgeButton = '<form id="badge-form" action="./'.$postLink.'" method="post">
 			<input type="hidden" name="role" value="123"/>
-			<input type="submit" value="'.$btnText.'"/>
+			<input type="submit" value="'.$badgeBtnText.'"/>
 		</form>';
 	}
 ?>
