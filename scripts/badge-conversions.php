@@ -113,6 +113,9 @@
 			case 'r':
 				return $badgeBegin.'fairy taken'.$badgeEnd;
 				break;
+			default:
+				return '';
+				break;
 		}
 	}
 	
@@ -175,6 +178,9 @@
 				break;
 			case '20':
 				return $badgeBegin.'fairy'.$badgeEnd;
+				break;
+			default:
+				return '';
 				break;
 		}
 	}

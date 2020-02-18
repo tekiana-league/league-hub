@@ -46,6 +46,7 @@
 	}
 	
 	$gymLeaderBadgeElem = '';
+	$badgeElements = '';
 	// Handle GET requests for trainerID
 	$trainerNum = '';
 	$fname = '';
@@ -105,6 +106,17 @@
 				if (intval($result[0]['role']) >= 3)
 				{
 					$gymLeaderBadgeElem = role_strtobadge(strval($result[0]['role']));
+				}
+				
+				// Take the badge string from the DB, and convert it into badges
+				$badges = strval($result[0]['badges']);
+				$counter = 0;
+				foreach ($badges as $badge)
+				{
+					if ($badge != '0')
+					{
+						$badgeElements .= strtobadge($badge);
+					}
 				}
 			}
 			else
