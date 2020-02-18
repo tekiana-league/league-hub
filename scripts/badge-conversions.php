@@ -118,7 +118,7 @@
 	
 	function role_strtobadge($input)
 	{
-		$badgeBegin = '<div class="badge ';
+		$badgeBegin = '<div class="card-front-badge ';
 		$badgeEnd = '"></div>';
 		switch ($input)
 		{
