@@ -1,7 +1,7 @@
 <?php
 	function strtobadge($input)
 	{
-		$badgeBegin = '<div class="card-front-badge ';
+		$badgeBegin = '<div class="badge ';
 		$badgeEnd = '"></div>';
 		switch ($input)
 		{
