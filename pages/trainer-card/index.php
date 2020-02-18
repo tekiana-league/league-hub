@@ -109,7 +109,7 @@
 				}
 				
 				// Take the badge string from the DB, and convert it into badges
-				$badges = strval($result[0]['badges']);
+				$badges = str_split(strval($result[0]['badges']));
 				$counter = 0;
 				foreach ($badges as $badge)
 				{
