@@ -59,7 +59,7 @@
 			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1';
 			
 			// Execute the statement
-			$result = db_select($link, $sql, $_GET['trainerid']);
+			$result = db_select($link, $sql, trim($_GET['trainerID']));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
@@ -138,7 +138,7 @@
  <meta name="author" content="<Author Name Here>"/>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <title>Trainer #<?php echo $trainerID;?></title>
+ <title>Trainer #<?php echo $trainerNum;?></title>
  
  <link rel="shortcut icon" href="../../images/site-icons/gym-logo.png"/>
  
@@ -193,7 +193,7 @@
 		</svg>
 	</div>
 	<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
-	<h1>Trainer #<?php echo $trainerID;?>: <?php echo $fname;?> <?php echo $lname;?></h1>
+	<h1>Trainer #<?php echo $trainerNum;?>: <?php echo $fname;?> <?php echo $lname;?></h1>
 	<?php echo $badgeButton;?>
 	<br/>
 	<form id="search-form" action="./" method="get">
