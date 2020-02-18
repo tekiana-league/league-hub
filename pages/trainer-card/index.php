@@ -36,7 +36,94 @@
 	}
 	
 	// Handle GET requests for trainerID
+	$trainerNum = '';
+	$fname = '';
+	$lname = '';
+	$bgImg = '';
+	$fgImg = '';
+	$overlayImg = '';
+	$cardNum = '';
+	$cardColor = '696969';
 	if (isset($_GET['trainerID']))
+	{
+		// Query the DB for the trainer
+		require_once('../../scripts/db-operations.php');
+		
+		// Connect to the DB
+		$link = db_connect();
+		
+		// If connection success, query for the trainer
+		if (db_verify_conn($link))
+		{
+			// Prepare the statement
+			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1';
+			
+			// Execute the statement
+			$result = db_select($link, $sql, $_GET['trainerid']);
+			
+			// Disconnect from the DB
+			$db_disconnect($link);
+			
+			// If the username exists, display the information
+			if (count($result) == 1)
+			{
+				$trainerNum = $result[0]['studentid'];
+				$fname = $result[0]['fname'];
+				$lname = $result[0]['lname'];
+				$bgImg = $result[0]['bgimg'];
+				$fgImg = $result[0]['fgimg'];
+				$overlayImg = $result[0]['overlayimg'];
+				$cardNum = $result[0]['trainernum'];
+				$cardColor = $result[0]['bordercolor'];
+			}
+			else
+			{
+				$trainerNum = '404';
+				$fname = 'Trainer';
+				$lname = 'Not Found';
+			}
+		}
+	}
+	
+	// Display the proper content
+	$cardCustomization = '';
+	if ($displayCustomization)
+	{
+		$cardCustomization = '<form id="update-form" action="./" method="post">
+			<input type="text" name="bgImg" placeholder="Trainer Card Background URL"/>
+			<input type="text" name="fgImg" placeholder="Trainer Card Foreground URL"/>
+			<input type="text" name="overlayImg" placeholder="Trainer Card Overlay URL"/>
+			<input type="text" name="cardNumber" placeholder="Trainer Card Number (3 digits max.)"/>
+			<br/>
+			<h2 class="input-label">Card Color:</h2>
+			<input type="color" name="cardColor"/>
+			<br/>
+			<input type="submit" value="Update Card"/>
+			<p id="successText"><?php echo $successText;?></p>
+			<p id="errorText"><?php echo $errorText;?></p>
+		</form>';
+	}
+	$badgeButton = '';
+	if ($displayBadgeBtn)
+	{
+		$btnText = ''
+		if ($_SESSION['role'] == 2)
+		{
+			$btnText = 'Steal Badge';
+			if ($trainerHasBadgeStolen)
+			{
+				$btnText = 'Return Badge';
+			}
+		}
+		else
+		{
+			$btnText = 'Award Badge';
+		}
+		$badgeButton = '<form id="badge-form" action="./" method="post">
+			<input type="hidden" name="role" value="123"/>
+			<input type="submit" value="'.$btnText.'"/>
+		</form>';
+	}
 ?>
 
 <!DOCTYPE html>
@@ -107,10 +194,7 @@
 	</div>
 	<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 	<h1>Trainer #<?php echo $trainerID;?>: <?php echo $fname;?> <?php echo $lname;?></h1>
-	<form id="badge-form" action="./" method="post">
-		<input type="hidden" name="role" value="123"/>
-		<input type="submit" value="<?php echo $badgeButtonTxt;//Award Badge?>"/>
-	</form>
+	<?php echo $badgeButton;?>
 	<br/>
 	<form id="search-form" action="./" method="get">
 		<input type="text" name="trainerID" placeholder="Search for trainer ID"/>
@@ -131,18 +215,6 @@
 			</div>
 		</div>
 	</div>
-	<form id="update-form" action="./" method="post">
-		<input type="text" name="bgImg" placeholder="Trainer Card Background URL"/>
-		<input type="text" name="fgImg" placeholder="Trainer Card Foreground URL"/>
-		<input type="text" name="overlayImg" placeholder="Trainer Card Overlay URL"/>
-		<input type="text" name="cardNumber" placeholder="Trainer Card Number (3 digits max.)"/>
-		<br/>
-		<h2 class="input-label">Card Color:</h2>
-		<input type="color" name="cardColor"/>
-		<br/>
-		<input type="submit" value="Update Card"/>
-		<p id="successText"><?php echo $successText;?></p>
-		<p id="errorText"><?php echo $errorText;?></p>
-	</form>
+	<?php echo $cardCustomization;?>
  </body>
  </html>
