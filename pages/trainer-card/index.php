@@ -45,6 +45,7 @@
 		$displayBadgeBtn = true;
 	}
 	
+	$gymLeaderBadgeElem = '';
 	// Handle GET requests for trainerID
 	$trainerNum = '';
 	$fname = '';
@@ -95,6 +96,15 @@
 					$displayCustomization = true;
 					// But make sure they can't do anything to themselves
 					$displayBadgeBtn = false;
+				}
+				
+				// Include badge manipulation functions
+				require_once('../../scripts/badge-conversions.php');
+				
+				// If the trainer's role is 3 or above, spawn a badge on the front of the card
+				if (intval($result[0]['role']) >= 3)
+				{
+					$gymLeaderBadgeElem = role_strtobadge(strval($result[0]['role']));
 				}
 			}
 			else
