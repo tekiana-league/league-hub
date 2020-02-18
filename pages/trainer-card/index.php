@@ -62,7 +62,7 @@
 			$result = db_select($link, $sql, $_GET['trainerid']);
 			
 			// Disconnect from the DB
-			$db_disconnect($link);
+			db_disconnect($link);
 			
 			// If the username exists, display the information
 			if (count($result) == 1)
