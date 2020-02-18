@@ -35,6 +35,14 @@
 		$btnElem = '<text class="menu-btn-text" x="635" y="255">Login</text>';
 	}
 	
+	$displayCustomization = false;
+	$displayBadgeBtn = false;
+	// If the Trainer's role is 2 or higher, display the action button
+	if (intval($_SESSION['role']) > 2)
+	{
+		$displayBadgeBtn = true;
+	}
+	
 	// Handle GET requests for trainerID
 	$trainerNum = '';
 	$fname = '';
@@ -75,6 +83,14 @@
 				$overlayImg = $result[0]['overlayimg'];
 				$cardNum = $result[0]['trainernum'];
 				$cardColor = $result[0]['bordercolor'];
+				
+				// If the trainer's ID matches, allow them to customize their card
+				if ($trainerNum == $_SESSION['trainerID'])
+				{
+					$displayCustomization = true;
+					// But make sure they can't do anything to themselves
+					$displayBadgeBtn = false;
+				}
 			}
 			else
 			{
@@ -107,7 +123,7 @@
 	if ($displayBadgeBtn)
 	{
 		$btnText = '';
-		if ($_SESSION['role'] == 2)
+		if (intval($_SESSION['role']) == 2)
 		{
 			$btnText = 'Steal Badge';
 			if ($trainerHasBadgeStolen)
