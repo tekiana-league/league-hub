@@ -116,14 +116,14 @@
 		<input type="submit" value="Search"/>
 	</form>
 	<br/>
-	<div class="card-container" style="--cardColor:#ee90e6" onClick="flipCard(this);">
+	<div class="card-container" style="--cardColor:#<?php echo $cardColor;?>" onClick="flipCard(this);">
 		<div class="trainer-card">
 			<div class="card-front">
-				<div class="card-front-bg" style="--bgImg:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR_qdb-eqJBy8axquiQcHpAkvJa7HmxxogEdEbkW2y_oS8ma4zv')"></div>
-				<div class="card-front-fg" style="--bgImg:url('https://tinyurl.com/s48j9ax')"></div>
-				<div class="card-front-overlay" style="--bgImg:url('https://cdn131.picsart.com/297836242009211.png?r1024x1024')"></div>
+				<div class="card-front-bg" style="--bgImg:url('<?php echo $bgImg;?>')"></div>
+				<div class="card-front-fg" style="--bgImg:url('<?php echo $fgImg;?>')"></div>
+				<div class="card-front-overlay" style="--bgImg:url('<?php echo $overlayImg;?>')"></div>
 				<div class="card-front-border-container"><div class="card-front-border"></div></div>
-				<p class="card-front-text">935</p>
+				<p class="card-front-text"><?php echo $cardNum;?></p>
 			</div>
 			<div class="card-back">
 				<p class="card-back-text">Badges</p>
