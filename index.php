@@ -19,6 +19,7 @@
 	
 	// Include necessary functions
 	require_once('./scripts/login-verification.php');
+	$trainerURL = '';
 	
 	// Test to see if the user is logged in
 	if (verify_login())
@@ -26,6 +27,7 @@
 		// If so, create logout button
 		$btnText = 'logout';
 		$btnElem = '<text class="menu-btn-text" x="625" y="255">Logout</text>';
+		$trainerURL .= '/?trainerID=' . $_SESSION['trainerID'];
 	}
 	else
 	{
@@ -88,7 +90,7 @@
 			<image class="menu-btn-img" x="92" y="328" width="130" height="130" xlink:href="images/menu-icons/gym.svg"/>
 			<circle id="rules-btn" class="menu-btn" cx="800" cy="400" r="95" onClick="location.href='pages/rulebook';"/>
 			<image class="menu-btn-img" x="605" y="527" width="130" height="130" xlink:href="images/menu-icons/book.svg"/>
-			<circle id="profile-btn" class="menu-btn" cx="500" cy="500" r="135" onClick="location.href='pages/trainer-card';"/>
+			<circle id="profile-btn" class="menu-btn" cx="500" cy="500" r="135" onClick="location.href='pages/trainer-card<?php echo $trainerURL;?>';"/>
 			<image class="menu-btn-img" x="265" y="525" width="180" height="180" xlink:href="images/menu-icons/id-card.svg"/>
 			<text class="menu-btn-text" x="410" y="670">Trainer Card</text>
 			<text class="menu-btn-text" x="155" y="455">Gym Leaders</text>

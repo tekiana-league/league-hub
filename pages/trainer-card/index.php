@@ -35,7 +35,8 @@
 		$btnElem = '<text class="menu-btn-text" x="635" y="255">Login</text>';
 	}
 	
-	// Handle trainer page logic
+	// Handle GET requests for trainerID
+	if (isset($_GET['trainerID']))
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +89,7 @@
 			<image class="menu-btn-img" x="-2" y="628" width="100" height="100" xlink:href="../../images/menu-icons/map.svg"/>
 			<circle id="login-btn" class="menu-btn" cx="675" cy="150" r="75" onClick="location.href='../<?php echo $btnText;?>';"/>
 			<image class="menu-btn-img" x="572" y="270" width="100" height="100" xlink:href="../../images/menu-icons/<?php echo $btnText;?>.svg"/>
-			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75" onClick="location.href='../register';"/>
+			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75" onClick="location.href='../registration';"/>
 			<image class="menu-btn-img" x="497" y="845" width="100" height="100" xlink:href="../../images/menu-icons/registration.svg"/>
 			<circle id="gyms-btn" class="menu-btn" cx="250" cy="325" r="95" onClick="location.href='../gym-leaders';"/>
 			<image class="menu-btn-img" x="95" y="330" width="130" height="130" xlink:href="../../images/menu-icons/gym.svg"/>
