@@ -40,7 +40,7 @@
 	$displayBadgeBtn = false;
 	$postLink = '';
 	// If the Trainer's role is 2 or higher, display the action button
-	if (intval($_SESSION['role']) > 2)
+	if (intval($_SESSION['role']) >= 2)
 	{
 		$displayBadgeBtn = true;
 	}
@@ -230,9 +230,12 @@
 				<div class="card-front-overlay" style="--bgImg:url('<?php echo $overlayImg;?>')"></div>
 				<div class="card-front-border-container"><div class="card-front-border"></div></div>
 				<p class="card-front-text"><?php echo $cardNum;?></p>
+				<?php echo $gymLeaderBadgeElem;?>
 			</div>
 			<div class="card-back">
+				<div class="card-back-overlay"></div>
 				<p class="card-back-text">Badges</p>
+				<?php echo $badgeElements;?>
 			</div>
 		</div>
 	</div>

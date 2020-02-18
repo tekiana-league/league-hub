@@ -119,15 +119,26 @@ h1
 
 .card-back-text
 {
-	position:absolute;
+	/*position:absolute;
 	top:0;
-	left:0;
+	left:0;*/
 	width:100%;
 	height:auto;
 	margin:3.5% 0%;
 	font-size:3.5vmin;
 	color:#fff;
 	text-shadow:.5vmin .5vmin 1vmin #222;
+}
+
+.card-back-overlay
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:rgba(15,15,15,.05);
+	z-index:-1;
 }
 
 input[type="text"]
@@ -229,4 +240,166 @@ input[type="color"]
 	}
 }
 
+/*Pokemon badge styles below*/
+.card-front-badge
+{
+	display:inline-block;
+	position:absolute;
+	top:1%;
+	left:1%;
+	width:15%;
+	height:auto;
+	padding-top:15%;
+	margin:2%;
+	border: .15vmin outset #d4af37;
+	z-index:1;
+}
+
+.badge
+{
+	display:inline-block;
+	width:15%;
+	padding-top:15%;
+	margin:2%;
+	border: .15vmin outset #d4af37;
+}
+
+.taken
+{
+	opacity:.45;
+}
+
 /*Pokemon type styles below*/
+.normal, .fire, .water, .electric, .grass, .ice, .fighting, .poison, .ground, .flying, .psychic, .bug, .rock, .ghost, .dragon, .dark, .steel, .fairy
+{
+	background-size:60% 60%;
+	background-repeat:no-repeat;
+	background-position:center;
+	border-radius:50%;
+}
+
+.normal
+{
+	background-color: #a0a29f;
+	box-shadow: 0 0 3.5vmin #a0a29f;
+	background-image:url('../images/type-icons/normal.svg');
+}
+
+.fire
+{
+	background-color: #fba54c;
+	box-shadow: 0 0 3.5vmin #fba54c;
+	background-image:url('../images/type-icons/fire.svg');
+}
+
+.water
+{
+	background-color: #539ddf;
+	box-shadow: 0 0 3.5vmin #539ddf;
+	background-image:url('../images/type-icons/water.svg');
+}
+
+.electric
+{
+	background-color: #f2d94e;
+	box-shadow: 0 0 3.5vmin #f2d94e;
+	background-image:url('../images/type-icons/electric.svg');
+}
+
+.grass
+{
+	background-color: #5fbd58;
+	box-shadow: 0 0 3.5vmin #5fbd58;
+	background-image:url('../images/type-icons/grass.svg');
+}
+
+.ice
+{
+	background-color: #75d0c1;
+	box-shadow: 0 0 3.5vmin #75d0c1;
+	background-image:url('../images/type-icons/ice.svg');
+}
+
+.fighting
+{
+	background-color: #d3425f;
+	box-shadow: 0 0 3.5vmin #d3425f;
+	background-image:url('../images/type-icons/fighting.svg');
+}
+
+.poison
+{
+	background-color: #b763cf;
+	box-shadow: 0 0 3.5vmin #b763cf;
+	background-image:url('../images/type-icons/poison.svg');
+}
+
+.ground
+{
+	background-color: #da7c4d;
+	box-shadow: 0 0 3.5vmin #da7c4d;
+	background-image:url('../images/type-icons/ground.svg');
+}
+
+.flying
+{
+	background-color: #a1bbec;
+	box-shadow: 0 0 3.5vmin #a1bbec;
+	background-image:url('../images/type-icons/flying.svg');
+}
+
+.psychic
+{
+	background-color: #fa8581;
+	box-shadow: 0 0 3.5vmin #fa8581;
+	background-image:url('../images/type-icons/psychic.svg');
+}
+
+.bug
+{
+	background-color: #92bc2c;
+	box-shadow: 0 0 3.5vmin #92bc2c;
+	background-image:url('../images/type-icons/bug.svg');
+}
+
+.rock
+{
+	background-color: #c9bb8a;
+	box-shadow: 0 0 3.5vmin #c9bb8a;
+	background-image:url('../images/type-icons/rock.svg');
+}
+
+.ghost
+{
+	background-color: #5f6dbc;
+	box-shadow: 0 0 3.5vmin #5f6dbc;
+	background-image:url('../images/type-icons/ghost.svg');
+}
+
+.dragon
+{
+	background-color: #0c69c8;
+	box-shadow: 0 0 3.5vmin #0c69c8;
+	background-image:url('../images/type-icons/dragon.svg');
+}
+
+.dark
+{
+	background-color: #595761;
+	box-shadow: 0 0 3.5vmin #595761;
+	background-image:url('../images/type-icons/dark.svg');
+}
+
+.steel
+{
+	background-color: #5695a3;
+	box-shadow: 0 0 3.5vmin #5695a3;
+	background-image:url('../images/type-icons/steel.svg');
+}
+
+.fairy
+{
+	background-color: #ee90e6;
+	box-shadow: 0 0 3.5vmin #ee90e6;
+	background-image:url('../images/type-icons/fairy.svg');
+}
