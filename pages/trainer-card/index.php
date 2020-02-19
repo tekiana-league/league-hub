@@ -109,7 +109,7 @@
 			// Verify the result
 			if ($result)
 			{
-				$successText .= 'Trainer Card updated successfully. Refresh the page to see your changes.<br/>';
+				$successText .= 'Trainer Card updated successfully.<br/>';
 			}
 			else
 			{
@@ -123,16 +123,86 @@
 	}
 	elseif (isset($_POST['role']) && intval($_SESSION['role']) >= 2)// Handle Badge Button POST requests
 	{
-		// Check trainer's role to see what the button does
-		if (intval($_SESSION['role']) > 2)
+		// Include DB functions
+		require_once('../../scripts/db-operations.php');
+		
+		// Connect to the DB
+		$link = db_connect();
+		
+		// If connection success, query for the trainer
+		$badges = array();
+		if (db_verify_conn($link))
 		{
-			// Gym Leader awarding badges
-			// $badges
-			// $lastBadgeIndex
+			// Prepare the statement
+			$sql = 'SELECT badges FROM trainers WHERE studentid = $1';
+			
+			// Execute the statement
+			$result = db_select($link, $sql, trim($_GET['trainerID']));
+			
+			// Disconnect from the DB
+			db_disconnect($link);
+			
+			// If the username exists, store the badge string from the DB as an array
+			if (count($result) == 1)
+			{
+				$badges = str_split(strval($result[0]['badges']));
+			}
 		}
-		elseif (intval($_SESSION['role']) == 2)
+		
+		// If the badge array isn't empty, get ready to manipulate it
+		if (count($badges) > 0)
 		{
-			// Criminal taking/returning badge
+			// Get the index value of the last badge
+			$lastBadgeIndex = 0;
+			foreach ($badges as $badge)
+			{
+				if ($badge != '0')
+				{
+					$lastBadgeIndex++;
+				}
+			}
+			
+			// Include badge manipulation functions
+			require_once('../../scripts/badge-conversions.php');
+			
+			// Check trainer's role to see what the button does
+			$badgeStr = '';
+			$sqlAdd = '';
+			if (intval($_SESSION['role']) > 2)
+			{
+				// Gym Leader awarding badges
+				$badges[$lastBadgeIndex] = roletochar(intval($_SESSION['role']));
+				$badgeStr = implode($badges);
+				$sqlAdd = ', earned_time = $3'
+			}
+			elseif (intval($_SESSION['role']) == 2)
+			{
+				// Criminal taking/returning badge
+			}
+			
+			// Attempt to upload changes to DB
+			$link = db_connect();
+			
+			// If the connection is valid, get ready to insert
+			if (db_verify_conn($link))
+			{
+				// Prepare the SQL string
+				$sql = 'UPDATE trainers set badges = $2'.$sqlAdd.' WHERE studentid = $1'
+				
+				// Execute the string
+				$result = false;
+				if (intval($_SESSION['role']) > 2)
+				{
+					db_exec($link, $sql, trim($_GET['trainerID']), $badgeStr, date('Y-m-d H:i'));
+				}
+				elseif (intval($_SESSION['role']) == 2)
+				{
+					db_exec($link, $sql, trim($_GET['trainerID']), $badgeStr);
+				}
+				
+				// Disconnect from the DB
+				db_disconnect($link);
+			}
 		}
 	}
 	
@@ -212,6 +282,14 @@
 					}
 					$lastBadgeIndex++;
 				}
+				
+				// If the trainer already has the Gym Leader's badge, lock the Badge Button
+				if (in_array(roletochar(intval($_SESSION['role'])), $badges) || in_array(strtolower(roletochar(intval($_SESSION['role']))), $badges))
+				{
+					$displayBadgeBtn = false;
+				}
+				
+				// (Figure out the timeout period, and lock the badge button accordingly)
 			}
 			else
 			{
