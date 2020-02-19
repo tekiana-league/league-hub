@@ -1,4 +1,9 @@
 /*General styles go here*/
+h1
+{
+	margin-bottom: 8vmin;
+}
+
 .content-div
 {
 	display:inline-block;
