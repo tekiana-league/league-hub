@@ -127,9 +127,19 @@ h1:not(.unchanged)
 	width:100%;
 	height:auto;
 	margin:3.5% 0%;
-	font-size:3.5vmin;
+	font-size:4.5vmin;
 	color:#fff;
 	text-shadow:.5vmin .5vmin 1vmin #222;
+}
+
+.card-back-text-small
+{
+	width:auto;
+	height:auto;
+	margin:7.5%;
+	font-size:3vmin;
+	color:#fff;
+	text-shadow:.1vmin .1vmin .5vmin #000;
 }
 
 .card-back-overlay
@@ -260,6 +270,17 @@ input[type="color"]
 	.card-front-text
 	{
 		font-size:10vmin;
+	}
+	
+	.card-back-text
+	{
+		font-size:3vmin;
+	}
+	
+	.card-back-text-small
+	{
+		margin:5%;
+		font-size:2vmin;
 	}
 	
 	.badge

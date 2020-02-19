@@ -77,7 +77,7 @@
 			<p class="card-front-text">$8</p>
 			$9</div><div class="card-back">
 			<div class="card-back-overlay"></div>
-			<p class="card-back-text">Trainer Bio:</p>
+			<p class="card-back-text">Gym Leader Bio:</p>
 			<p class="card-back-text-small">$a</p>
 			</div></div></div></div>';
 		}
@@ -158,7 +158,7 @@
 			<image class="menu-btn-img" x="-2" y="628" width="100" height="100" xlink:href="../../images/menu-icons/map.svg"/>
 			<circle id="login-btn" class="menu-btn" cx="675" cy="150" r="75" onClick="location.href='../<?php echo $btnText;?>';"/>
 			<image class="menu-btn-img" x="572" y="270" width="100" height="100" xlink:href="../../images/menu-icons/<?php echo $btnText;?>.svg"/>
-			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75" onClick="location.href='../registration<?php echo $trainerURL;?>';"/>
+			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75" onClick="location.href='../registration';"/>
 			<image class="menu-btn-img" x="497" y="845" width="100" height="100" xlink:href="../../images/menu-icons/registration.svg"/>
 			<circle id="home-btn" class="menu-btn" cx="445" cy="800" r="55" onClick="location.href='../../';"/>
 			<image class="menu-btn-img" x="183" y="845" width="80" height="80" xlink:href="../../images/menu-icons/home.svg"/>
