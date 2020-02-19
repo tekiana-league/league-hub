@@ -30,6 +30,7 @@ h1
 	/*background-color:#00f;*/
 	cursor:pointer;
 	transform-style:preserve-3d;
+	-webkit-transform-style: preserve-3d;
 	transition:all .75s;
 }
 .trainer-card.flip
@@ -48,6 +49,7 @@ h1
 	box-shadow:.5vmin .5vmin 1vmin #222;
 	overflow:hidden;
 	backface-visibility:hidden;
+	-webkit-backface-visibility: hidden;
 }
 .card-front
 {
