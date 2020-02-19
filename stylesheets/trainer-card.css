@@ -260,8 +260,8 @@ input[type="color"]
 .badge
 {
 	display:inline-block;
-	width:15.5%;
-	padding-top:15.5%;
+	width:16%;
+	padding-top:16%;
 	margin:2%;
 	border: .15vmin outset #d4af37;
 }
