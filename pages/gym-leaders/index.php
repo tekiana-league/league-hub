@@ -126,7 +126,7 @@
  
  <link type="text/css" rel="stylesheet" href="../../stylesheets/style.css"/>
  <link type="text/css" rel="stylesheet" href="../../stylesheets/menu.css"/>
- <link type="text/css" rel="stylesheet" href="../../stylesheets/*stylesheet-name*.css"/>
+ <link type="text/css" rel="stylesheet" href="../../stylesheets/trainer-card.css"/>
  
  <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Great+Vibes&display=swap" rel="stylesheet">
