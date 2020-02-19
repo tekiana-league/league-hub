@@ -149,30 +149,30 @@
 			// Add filled fields
 			$counter = 2;
 			$sqlAdditions = '';
-			if (isset($_POST['bgImg']))
+			if (isset($_POST['bgImg']) && !empty(trim($_POST['bgImg'])))
 			{
 				$sqlAdditions .= 'bgimg = \''.str_replace(';', '', trim($_POST['bgImg'])).'\'';
 				$counter++;
 			}
-			if (isset($_POST['fgImg']))
+			if (isset($_POST['fgImg']) && !empty(trim($_POST['fgImg'])))
 			{
 				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'fgimg = \''.str_replace(';', '', trim($_POST['fgImg'])).'\'';
 				$counter++;
 			}
-			if (isset($_POST['overlayImg']))
+			if (isset($_POST['overlayImg']) && !empty(trim($_POST['overlayImg'])))
 			{
 				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'overlayimg = \''.str_replace(';', '', trim($_POST['overlayImg'])).'\'';
 				$counter++;
 			}
-			if (isset($_POST['cardNumber']))
+			if (isset($_POST['cardNumber']) && !empty(trim($_POST['cardNumber'])) && ctype_digit(trim($_POST['cardNumber'])) && strlen(trim($_POST['cardNumber'])) <= 3)
 			{
 				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
 				$counter++;
 			}
-			if (isset($_POST['cardColor']) && $_POST['cardColor'] != '%23000000')
+			if (isset($_POST['cardColor']) && !empty(trim($_POST['cardColor'])) && $_POST['cardColor'] != '%23000000' && substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6) != '000000')
 			{
 				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'bordercolor = \''.substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6).'\'';
