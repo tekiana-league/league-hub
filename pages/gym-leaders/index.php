@@ -126,6 +126,7 @@
  
  <link type="text/css" rel="stylesheet" href="../../stylesheets/style.css"/>
  <link type="text/css" rel="stylesheet" href="../../stylesheets/menu.css"/>
+ <link type="text/css" rel="stylesheet" href="../../stylesheets/home.css"/>
  <link type="text/css" rel="stylesheet" href="../../stylesheets/trainer-card.css"/>
  
  <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto&display=swap" rel="stylesheet">
@@ -134,6 +135,7 @@
  <script src="https://kit.fontawesome.com/b657a3b372.js" crossorigin="anonymous"></script>
  
  <script src="../../scripts/menu.js"></script>
+ <script src="../../scripts/trainer-card.js"></script>
 
  </head>
  <body>
