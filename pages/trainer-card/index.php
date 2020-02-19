@@ -187,7 +187,7 @@
 			if (db_verify_conn($link))
 			{
 				// Prepare the SQL string
-				$sql = 'UPDATE trainers set badges = $2'.$sqlAdd.' WHERE studentid = $1'
+				$sql = 'UPDATE trainers set badges = $2'.$sqlAdd.' WHERE studentid = $1';
 				
 				// Execute the string
 				$result = false;
