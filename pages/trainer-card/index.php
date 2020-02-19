@@ -1,6 +1,7 @@
 <?php
 	// Initialize the session
 	session_start();
+	$debug;
 	
 	// Test to see if registration mode is still enabled
 	if ((isset($_SESSION['registrationModeEnabled']) && $_SESSION['registrationModeEnabled'] == true) || (isset($_SESSION['changePasswordMode']) && $_SESSION['changePasswordMode'] == true))
@@ -313,6 +314,7 @@
 				$start_date = new DateTime($result[0]['earned_time']);
 				$since_start = $start_date->diff(new DateTime(date('Y-m-d H:i')));
 				$total_minutes = $since_start->days *24*60 + $since_start->h *60 + $since_start->i;
+				$debug = $total_minutes;
 				if ($total_minutes > 20)
 				{
 					$displayBadgeBtn = false;
@@ -461,5 +463,6 @@
 		</div>
 	</div>
 	<?php echo $cardCustomization;?>
+	<p><?php echo $debug;?></p>
  </body>
  </html>
