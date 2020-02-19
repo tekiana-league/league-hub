@@ -310,7 +310,10 @@
 				}
 				
 				// (Figure out the timeout period, and lock the badge button accordingly)
-				if (date_add(strtotime($result[0]['earned_time']),date_interval_create_from_date_string('20 minutes')) < strtotime(date('Y-m-d H:i')))
+				$start_date = new DateTime($result[0]['earned_time']);
+				$since_start = $start_date->diff(new DateTime(date('Y-m-d H:i')));
+				$total_minutes = $since_start->days *24*60 + $since_start->h *60 + $since_start->i;
+				if ($total_minutes > 20)
 				{
 					$displayBadgeBtn = false;
 				}
