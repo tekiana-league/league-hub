@@ -310,6 +310,7 @@
 				}
 				
 				// (Figure out the timeout period, and lock the badge button accordingly)
+				if (date_add(strtotime($result[0]['earned_time']),date_interval_create_from_date_string('20 minutes')) < strtotime(date('Y-m-d H:i')))
 			}
 			else
 			{
