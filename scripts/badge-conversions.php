@@ -248,4 +248,68 @@
 				break;
 		}
 	}
+	
+	function roletotype($input)
+	{
+		switch ($input)
+		{
+			case '3':
+				return 'Normal';
+				break;
+			case '4':
+				return 'Fire';
+				break;
+			case '5':
+				return 'Water';
+				break;
+			case '6':
+				return 'Electric';
+				break;
+			case '7':
+				return 'Grass';
+				break;
+			case '8':
+				return 'Ice';
+				break;
+			case '9':
+				return 'Fighting';
+				break;
+			case '10':
+				return 'Poison';
+				break;
+			case '11':
+				return 'Ground';
+				break;
+			case '12':
+				return 'Flying';
+				break;
+			case '13':
+				return 'Psychic';
+				break;
+			case '14':
+				return 'Bug';
+				break;
+			case '15':
+				return 'Rock';
+				break;
+			case '16':
+				return 'Ghost';
+				break;
+			case '17':
+				return 'Dragon';
+				break;
+			case '18':
+				return 'Dark';
+				break;
+			case '19':
+				return 'Steel';
+				break;
+			case '20':
+				return 'Fairy';
+				break;
+			default:
+				return '';
+				break;
+		}
+	}
 ?>
