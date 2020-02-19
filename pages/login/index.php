@@ -111,6 +111,7 @@
  <link rel="shortcut icon" href="../../images/site-icons/gym-logo.png"/>
  
  <link type="text/css" rel="stylesheet" href="../../stylesheets/style.css"/>
+ <link type="text/css" rel="stylesheet" href="../../stylesheets/menu.css"/>
  <link type="text/css" rel="stylesheet" href="../../stylesheets/login.css"/>
  
  <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto&display=swap" rel="stylesheet">
@@ -120,6 +121,9 @@
 
  </head>
  <body>
+	<div id="menu-show-btn" class="menu-btn" onClick="location.href = '../../';">
+		<svg id="menu-close-icon" viewBox="0 0 100 100"><image x="20" y="20" width="60" height="60" xlink:href="../../images/menu-icons/close.svg"/><svg/>
+	</div>
 	<div id="login-container">
 		<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 		<h1>Trainer Login</h1>
