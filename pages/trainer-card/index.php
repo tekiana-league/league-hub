@@ -216,8 +216,8 @@
 			<input type="color" name="cardColor"/>
 			<br/>
 			<input type="submit" value="Update Card"/>
-			<p id="successText"><?php echo $successText;?></p>
-			<p id="errorText"><?php echo $errorText;?></p>
+			<p id="successText">'.$successText.'</p>
+			<p id="errorText">'.$errorText.'</p>
 		</form>';
 	}
 	$badgeButton = '';
