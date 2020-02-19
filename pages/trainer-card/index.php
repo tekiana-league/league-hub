@@ -48,6 +48,94 @@
 	
 	$gymLeaderBadgeElem = '';
 	$badgeElements = '';
+	$trainerHasBadgeStolen = false;
+	// Handle card customization POST requests
+	$successText = '';
+	$errorText = '';
+	if (isset($_POST['bgImg']) || isset($_POST['fgImg']) || isset($_POST['overlayImg']) || isset($_POST['cardNumber']) || isset($_POST['cardColor']))
+	{
+		// Include DB functions
+		require_once('../../scripts/db-operations.php');
+		
+		// Connect to the DB
+		$link = db_connect();
+		
+		// If the connection worked, get ready to insert
+		if (db_verify_conn($link))
+		{
+			// Prepare the base SQL string
+			$sql = 'UPDATE trainers set ? WHERE studentid = $1';
+			
+			// Add filled fields
+			$counter = 2;
+			$sqlAdditions = '';
+			if (isset($_POST['bgImg']) && !empty(trim($_POST['bgImg'])))
+			{
+				$sqlAdditions .= 'bgimg = \''.str_replace(';', '', trim($_POST['bgImg'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['fgImg']) && !empty(trim($_POST['fgImg'])))
+			{
+				if ($counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'fgimg = \''.str_replace(';', '', trim($_POST['fgImg'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['overlayImg']) && !empty(trim($_POST['overlayImg'])))
+			{
+				if ($counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'overlayimg = \''.str_replace(';', '', trim($_POST['overlayImg'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['cardNumber']) && !empty(trim($_POST['cardNumber'])) && ctype_digit(trim($_POST['cardNumber'])) && strlen(trim($_POST['cardNumber'])) <= 3)
+			{
+				if ($counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['cardColor']) && !empty(trim($_POST['cardColor'])) && $_POST['cardColor'] != '%23000000' && substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6) != '000000')
+			{
+				if ($counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'bordercolor = \''.substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6).'\'';
+				$counter++;
+			}
+			$sql = str_replace('?', $sqlAdditions, $sql);
+			
+			// Execute the query
+			$result = db_exec($link, $sql, $_SESSION['trainerID']);
+			
+			// Disconnect from the DB
+			db_disconnect($link);
+			
+			// Verify the result
+			if ($result)
+			{
+				$successText .= 'Trainer Card updated successfully. Refresh the page to see your changes.<br/>';
+			}
+			else
+			{
+				$errorText .= 'There was an error updating your Trainer Card. Please try again later.<br/>';
+			}
+		}
+		else
+		{
+			$errorText .= 'Unable to connect to the database. Please try again later.<br/>';
+		}
+	}
+	elseif (isset($_POST['role']) && intval($_SESSION['role']) >= 2)// Handle Badge Button POST requests
+	{
+		// Check trainer's role to see what the button does
+		if (intval($_SESSION['role']) > 2)
+		{
+			// Gym Leader awarding badges
+			// $badges
+			// $lastBadgeIndex
+		}
+		elseif (intval($_SESSION['role']) == 2)
+		{
+			// Criminal taking/returning badge
+		}
+	}
+	
 	// Handle GET requests for trainerID
 	$trainerNum = '';
 	$fname = '';
@@ -111,13 +199,18 @@
 				
 				// Take the badge string from the DB, and convert it into badges
 				$badges = str_split(strval($result[0]['badges']));
-				$counter = 0;
+				$lastBadgeIndex = 0;
 				foreach ($badges as $badge)
 				{
 					if ($badge != '0')
 					{
 						$badgeElements .= strtobadge($badge);
 					}
+					if (ctype_lower($badge))
+					{
+						$trainerHasBadgeStolen = true;
+					}
+					$lastBadgeIndex++;
 				}
 			}
 			else
@@ -126,79 +219,6 @@
 				$fname = 'Trainer';
 				$lname = 'Not Found';
 			}
-		}
-	}
-	
-	// Handle card customization POST requests
-	$successText = '';
-	$errorText = '';
-	if (isset($_POST['bgImg']) || isset($_POST['fgImg']) || isset($_POST['overlayImg']) || isset($_POST['cardNumber']) || isset($_POST['cardColor']))
-	{
-		// Include DB functions
-		require_once('../../scripts/db-operations.php');
-		
-		// Connect to the DB
-		$link = db_connect();
-		
-		// If the connection worked, get ready to insert
-		if (db_verify_conn($link))
-		{
-			// Prepare the base SQL string
-			$sql = 'UPDATE trainers set ? WHERE studentid = $1';
-			
-			// Add filled fields
-			$counter = 2;
-			$sqlAdditions = '';
-			if (isset($_POST['bgImg']) && !empty(trim($_POST['bgImg'])))
-			{
-				$sqlAdditions .= 'bgimg = \''.str_replace(';', '', trim($_POST['bgImg'])).'\'';
-				$counter++;
-			}
-			if (isset($_POST['fgImg']) && !empty(trim($_POST['fgImg'])))
-			{
-				if ($counter > 2){$sqlAdditions .= ', ';}
-				$sqlAdditions .= 'fgimg = \''.str_replace(';', '', trim($_POST['fgImg'])).'\'';
-				$counter++;
-			}
-			if (isset($_POST['overlayImg']) && !empty(trim($_POST['overlayImg'])))
-			{
-				if ($counter > 2){$sqlAdditions .= ', ';}
-				$sqlAdditions .= 'overlayimg = \''.str_replace(';', '', trim($_POST['overlayImg'])).'\'';
-				$counter++;
-			}
-			if (isset($_POST['cardNumber']) && !empty(trim($_POST['cardNumber'])) && ctype_digit(trim($_POST['cardNumber'])) && strlen(trim($_POST['cardNumber'])) <= 3)
-			{
-				if ($counter > 2){$sqlAdditions .= ', ';}
-				$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
-				$counter++;
-			}
-			if (isset($_POST['cardColor']) && !empty(trim($_POST['cardColor'])) && $_POST['cardColor'] != '%23000000' && substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6) != '000000')
-			{
-				if ($counter > 2){$sqlAdditions .= ', ';}
-				$sqlAdditions .= 'bordercolor = \''.substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6).'\'';
-				$counter++;
-			}
-			$sql = str_replace('?', $sqlAdditions, $sql);
-			
-			// Execute the query
-			$result = db_exec($link, $sql, $_SESSION['trainerID']);
-			
-			// Disconnect from the DB
-			db_disconnect($link);
-			
-			// Verify the result
-			if ($result)
-			{
-				$successText .= 'Trainer Card updated successfully.<br/>';
-			}
-			else
-			{
-				$errorText .= 'There was an error updating your Trainer Card. Please try again later.<br/>';
-			}
-		}
-		else
-		{
-			$errorText .= 'Unable to connect to the database. Please try again later.<br/>';
 		}
 	}
 	
