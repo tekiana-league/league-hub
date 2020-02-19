@@ -128,6 +128,79 @@
 		}
 	}
 	
+	// Handle card customization POST requests
+	$successText = '';
+	$errorText = '';
+	if (isset($_POST['bgImg']) || isset($_POST['fgImg']) || isset($_POST['overlayImg']) || isset($_POST['cardNumber']) || isset($_POST['cardColor']))
+	{
+		// Include DB functions
+		require_once('../../scripts/db-operations.php');
+		
+		// Connect to the DB
+		$link = db_connect();
+		
+		// If the connection worked, get ready to insert
+		if (db_verify_conn($link))
+		{
+			// Prepare the base SQL string
+			$sql = 'UPDATE trainers set ? WHERE studentid = $1';
+			
+			// Add filled fields
+			$counter = 2;
+			$sqlAdditions = '';
+			if (isset($_POST['bgImg']))
+			{
+				$sqlAdditions .= 'bgimg = \''.str_replace(';', '', trim($_POST['bgImg'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['fgImg']))
+			{
+				if (counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'fgimg = \''.str_replace(';', '', trim($_POST['fgImg'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['overlayImg']))
+			{
+				if (counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'overlayimg = \''.str_replace(';', '', trim($_POST['overlayImg'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['cardNumber']))
+			{
+				if (counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
+				$counter++;
+			}
+			if (isset($_POST['cardColor']))
+			{
+				if (counter > 2){$sqlAdditions .= ', ';}
+				$sqlAdditions .= 'bordercolor = \''.substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6).'\'';
+				$counter++;
+			}
+			str_replace('?', $sqlAdditions, $sql);
+			
+			// Execute the query
+			$result = db_exec($link, $sql, $_SESSION['trainerID']);
+			
+			// Disconnect from the DB
+			db_disconnect($link);
+			
+			// Verify the result
+			if ($result)
+			{
+				$successText .= 'Trainer Card updated successfully.<br/>';
+			}
+			else
+			{
+				$errorText .= 'There was an error updating your Trainer Card. Please try again later.<br/>';
+			}
+		}
+		else
+		{
+			$errorText .= 'Unable to connect to the database. Please try again later.<br/>';
+		}
+	}
+	
 	// Display the proper content
 	$cardCustomization = '';
 	if ($displayCustomization)

@@ -74,6 +74,9 @@
 				// Execute the statement
 				$result = db_exec($link, $sql, trim($_POST['trainerID']), password_hash(trim($_POST['newpassword']), PASSWORD_DEFAULT));
 				
+				// Disconnect from the DB
+				db_disconnect($link);
+				
 				// Verify success
 				if ($result)
 				{
