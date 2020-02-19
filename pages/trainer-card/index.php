@@ -144,7 +144,7 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the base SQL string
-			$sql = 'UPDATE trainers set yeet WHERE studentid = $1';
+			$sql = 'UPDATE trainers set ? WHERE studentid = $1';
 			
 			// Add filled fields
 			$counter = 2;
@@ -178,7 +178,7 @@
 				$sqlAdditions .= 'bordercolor = \''.substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6).'\'';
 				$counter++;
 			}
-			str_replace('yeet', $sqlAdditions, $sql);
+			$sql = str_replace('?', $sqlAdditions, $sql);
 			
 			// Execute the query
 			$result = db_exec($link, $sql, $_SESSION['trainerID']);
