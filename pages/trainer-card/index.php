@@ -20,6 +20,7 @@
 	
 	// Include necessary functions
 	require_once('../../scripts/login-verification.php');
+	$trainerURL = '';
 	
 	// Test to see if the user is logged in
 	if (verify_login())
@@ -155,25 +156,25 @@
 			}
 			if (isset($_POST['fgImg']))
 			{
-				if (counter > 2){$sqlAdditions .= ', ';}
+				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'fgimg = \''.str_replace(';', '', trim($_POST['fgImg'])).'\'';
 				$counter++;
 			}
 			if (isset($_POST['overlayImg']))
 			{
-				if (counter > 2){$sqlAdditions .= ', ';}
+				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'overlayimg = \''.str_replace(';', '', trim($_POST['overlayImg'])).'\'';
 				$counter++;
 			}
 			if (isset($_POST['cardNumber']))
 			{
-				if (counter > 2){$sqlAdditions .= ', ';}
+				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
 				$counter++;
 			}
 			if (isset($_POST['cardColor']))
 			{
-				if (counter > 2){$sqlAdditions .= ', ';}
+				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'bordercolor = \''.substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6).'\'';
 				$counter++;
 			}
