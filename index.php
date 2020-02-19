@@ -79,6 +79,7 @@
 			<path class="menu-line" d="M500 500Q350 650 225 650"/>
 			<path class="menu-line" d="M500 500Q700 550 800 400"/>
 			<path class="menu-line" d="M500 500Q500 250 675 150"/>
+			<path class="menu-line" d="M500 500Q300 650 445 800"/>
 			<line class="menu-line" x1="500" y1="500" x2="750" y2="725"/>
 			<circle id="map-btn" class="menu-btn" cx="225" cy="650" r="75"/>
 			<image class="menu-btn-img" x="-2" y="628" width="100" height="100" xlink:href="images/menu-icons/map.svg"/>
@@ -86,6 +87,8 @@
 			<image class="menu-btn-img" x="572" y="270" width="100" height="100" xlink:href="images/menu-icons/<?php echo $btnText;?>.svg"/>
 			<circle id="register-btn" class="menu-btn" cx="750" cy="725" r="75" onClick="location.href='pages/registration';"/>
 			<image class="menu-btn-img" x="497" y="845" width="100" height="100" xlink:href="images/menu-icons/registration.svg"/>
+			<circle id="home-btn" class="menu-btn" cx="445" cy="800" r="55"/>
+			<image class="menu-btn-img" x="183" y="845" width="80" height="80" xlink:href="../images/menu-icons/home.svg"/>
 			<circle id="gyms-btn" class="menu-btn" cx="250" cy="325" r="95" onClick="location.href='pages/gym-leaders';"/>
 			<image class="menu-btn-img" x="92" y="328" width="130" height="130" xlink:href="images/menu-icons/gym.svg"/>
 			<circle id="rules-btn" class="menu-btn" cx="800" cy="400" r="95" onClick="location.href='pages/rulebook';"/>
@@ -98,6 +101,7 @@
 			<text class="menu-btn-text" x="735" y="530">Rulebook</text>
 			<?php echo $btnElem;?>
 			<text class="menu-btn-text" x="630" y="835">Registration Mode</text>
+			<text class="menu-btn-text" x="400" y="885">Home</text>
 		</svg>
 	</div>
 	<img id="league-logo" src="images/logos/league-logo.png" alt="League Logo"/>
