@@ -187,62 +187,65 @@
 	
 	function roletochar($input)
 	{
-		case '3':
-			return 'A';
-			break;
-		case '4':
-			return 'B';
-			break;
-		case '5':
-			return 'C';
-			break;
-		case '6':
-			return 'D';
-			break;
-		case '7':
-			return 'E';
-			break;
-		case '8':
-			return 'F';
-			break;
-		case '9':
-			return 'G';
-			break;
-		case '10':
-			return 'H';
-			break;
-		case '11':
-			return 'I';
-			break;
-		case '12':
-			return 'J';
-			break;
-		case '13':
-			return 'K';
-			break;
-		case '14':
-			return 'L';
-			break;
-		case '15':
-			return 'M';
-			break;
-		case '16':
-			return 'N';
-			break;
-		case '17':
-			return 'O';
-			break;
-		case '18':
-			return 'P';
-			break;
-		case '19':
-			return 'Q';
-			break;
-		case '20':
-			return 'R';
-			break;
-		default:
-			return '';
-			break;
+		switch ($input)
+		{
+			case '3':
+				return 'A';
+				break;
+			case '4':
+				return 'B';
+				break;
+			case '5':
+				return 'C';
+				break;
+			case '6':
+				return 'D';
+				break;
+			case '7':
+				return 'E';
+				break;
+			case '8':
+				return 'F';
+				break;
+			case '9':
+				return 'G';
+				break;
+			case '10':
+				return 'H';
+				break;
+			case '11':
+				return 'I';
+				break;
+			case '12':
+				return 'J';
+				break;
+			case '13':
+				return 'K';
+				break;
+			case '14':
+				return 'L';
+				break;
+			case '15':
+				return 'M';
+				break;
+			case '16':
+				return 'N';
+				break;
+			case '17':
+				return 'O';
+				break;
+			case '18':
+				return 'P';
+				break;
+			case '19':
+				return 'Q';
+				break;
+			case '20':
+				return 'R';
+				break;
+			default:
+				return '';
+				break;
+		}
 	}
 ?>
