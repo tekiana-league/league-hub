@@ -50,6 +50,7 @@
 	{
 		// Prepare the SQL string
 		$sql = 'SELECT fname, lname, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, bio FROM trainers WHERE role BETWEEN 3 AND 20';
+		$pageContent .= '<p>'.$sql.'</p>';
 		
 		// Execute the string
 		$results = db_select($link, $sql);
