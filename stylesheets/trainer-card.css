@@ -167,6 +167,35 @@ input[type="color"]
 	height:5vmin;
 }
 
+/*Pokemon badge styles below*/
+.card-front-badge
+{
+	display:inline-block;
+	position:absolute;
+	top:1%;
+	left:1%;
+	width:15%;
+	height:auto;
+	padding-top:15%;
+	margin:2%;
+	border: .15vmin outset #d4af37;
+	z-index:1;
+}
+
+.badge
+{
+	display:inline-block;
+	width:16.5%;
+	padding-top:16.5%;
+	margin:2% 2.5%;
+	border: .15vmin outset #d4af37;
+}
+
+.taken
+{
+	opacity:.45;
+}
+
 @media only screen and (orientation: landscape)
 {
 	/*Place styles here for landscape-mode devices*/
@@ -246,35 +275,6 @@ input[type="color"]
 			top:0;
 		}
 	}
-}
-
-/*Pokemon badge styles below*/
-.card-front-badge
-{
-	display:inline-block;
-	position:absolute;
-	top:1%;
-	left:1%;
-	width:15%;
-	height:auto;
-	padding-top:15%;
-	margin:2%;
-	border: .15vmin outset #d4af37;
-	z-index:1;
-}
-
-.badge
-{
-	display:inline-block;
-	width:16.5%;
-	padding-top:16.5%;
-	margin:2% 2.5%;
-	border: .15vmin outset #d4af37;
-}
-
-.taken
-{
-	opacity:.45;
 }
 
 /*Pokemon type styles below*/
