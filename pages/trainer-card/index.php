@@ -144,7 +144,7 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the base SQL string
-			$sql = 'UPDATE trainers set ? WHERE studentid = $1';
+			$sql = 'UPDATE trainers set yeet WHERE studentid = $1';
 			
 			// Add filled fields
 			$counter = 2;
@@ -172,13 +172,13 @@
 				$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
 				$counter++;
 			}
-			if (isset($_POST['cardColor']))
+			if (isset($_POST['cardColor']) && $_POST['cardColor'] != '%23000000')
 			{
 				if ($counter > 2){$sqlAdditions .= ', ';}
 				$sqlAdditions .= 'bordercolor = \''.substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6).'\'';
 				$counter++;
 			}
-			str_replace('?', $sqlAdditions, $sql);
+			str_replace('yeet', $sqlAdditions, $sql);
 			
 			// Execute the query
 			$result = db_exec($link, $sql, $_SESSION['trainerID']);
