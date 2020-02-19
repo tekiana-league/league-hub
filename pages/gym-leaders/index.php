@@ -126,8 +126,8 @@
  
  <link type="text/css" rel="stylesheet" href="../../stylesheets/style.css"/>
  <link type="text/css" rel="stylesheet" href="../../stylesheets/menu.css"/>
- <link type="text/css" rel="stylesheet" href="../../stylesheets/home.css"/>
  <link type="text/css" rel="stylesheet" href="../../stylesheets/trainer-card.css"/>
+ <link type="text/css" rel="stylesheet" href="../../stylesheets/gym-leaders.css"/>
  
  <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Great+Vibes&display=swap" rel="stylesheet">
@@ -177,8 +177,8 @@
 			<text class="menu-btn-text" x="400" y="885">Home</text>
 		</svg>
 	</div>
-	<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
-	<h1>Tekiana Gym Leaders</h1>
+	<img id="league-logo" class="unchanged" src="../../images/logos/league-logo.png" alt="League Logo"/>
+	<h1 class="unchanged">Tekiana Gym Leaders</h1>
 	<?php echo $pageContent;?>
  </body>
  </html>

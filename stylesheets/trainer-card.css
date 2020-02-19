@@ -1,10 +1,10 @@
 /*General styles go here*/
-#league-logo
+#league-logo:not(.unchanged)
 {
 	position:relative;
 }
 
-h1
+h1:not(.unchanged)
 {
 	position:relative;
 	margin-bottom:2.5vmin;
@@ -199,13 +199,13 @@ input[type="color"]
 @media only screen and (orientation: landscape)
 {
 	/*Place styles here for landscape-mode devices*/
-	#league-logo
+	#league-logo:not(.unchanged)
 	{
 		display:inline-block;
 		left:-5vmin;
 	}
 	
-	h1
+	h1:not(.unchanged)
 	{
 		display:inline-block;
 		top:-12vmin;

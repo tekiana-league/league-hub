@@ -1,0 +1,23 @@
+/*General styles go here*/
+.content-div
+{
+	display:inline-block;
+	width:70vmin;
+	height:auto;
+	margin:5vmin;
+}
+
+.card-container
+{
+	margin:1%;
+}
+
+@media only screen and (orientation: landscape)
+{
+	/*Place styles here for landscape-mode devices*/
+	.content-div
+	{
+		width:40vmin;
+		height:auto;
+	}
+}
