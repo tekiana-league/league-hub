@@ -174,7 +174,8 @@
 			// Check trainer's role to see what the button does
 			$badgeStr = '';
 			$sqlAdd = '';
-			if (intval($_SESSION['role']) > 2 && !(in_array(roletochar(intval($_SESSION['role'])), $badges) || in_array(strtolower(roletochar(intval($_SESSION['role']))), $badges)))
+			$alreadyHasBadge = (in_array(roletochar(intval($_SESSION['role'])), $badges) || in_array(strtolower(roletochar(intval($_SESSION['role']))), $badges));
+			if (intval($_SESSION['role']) > 2)
 			{
 				// Gym Leader awarding badges
 				$badges[$lastBadgeIndex] = roletochar(intval($_SESSION['role']));
@@ -210,7 +211,7 @@
 				
 				// Execute the string
 				$result = false;
-				if (intval($_SESSION['role']) > 2)
+				if (intval($_SESSION['role']) > 2 && !$alreadyHasBadge)
 				{
 					db_exec($link, $sql, trim($_GET['trainerID']), $badgeStr, date('Y-m-d H:i'));
 				}
