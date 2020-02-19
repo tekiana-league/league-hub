@@ -173,7 +173,7 @@
 				// Gym Leader awarding badges
 				$badges[$lastBadgeIndex] = roletochar(intval($_SESSION['role']));
 				$badgeStr = implode($badges);
-				$sqlAdd = ', earned_time = $3'
+				$sqlAdd = ', earned_time = $3';
 			}
 			elseif (intval($_SESSION['role']) == 2)
 			{
