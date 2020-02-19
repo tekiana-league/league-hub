@@ -154,8 +154,14 @@
 		{
 			// Get the index value of the last badge
 			$lastBadgeIndex = 0;
+			$stolenBadgeIndex = 0;
 			foreach ($badges as $badge)
 			{
+				if (ctype_lower($badge))
+				{
+					$trainerHasBadgeStolen = true;
+					$stolenBadgeIndex = $lastBadgeIndex;
+				}
 				if ($badge != '0')
 				{
 					$lastBadgeIndex++;
@@ -178,6 +184,19 @@
 			elseif (intval($_SESSION['role']) == 2)
 			{
 				// Criminal taking/returning badge
+				if (!$trainerHasBadgeStolen)
+				{
+					// Badge theft
+					$stolenBadgeIndex = rand(0,$lastBadgeIndex-1);
+					$badges[$stolenBadgeIndex] = strtolower($badges[$stolenBadgeIndex]);
+					$badgeStr = implode($badges);
+				}
+				else
+				{
+					// Badge return
+					$badges[$stolenBadgeIndex] = strtoupper($badges[$stolenBadgeIndex]);
+					$badgeStr = implode($badges);
+				}
 			}
 			
 			// Attempt to upload changes to DB
