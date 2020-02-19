@@ -225,6 +225,7 @@
 		}
 	}
 	
+	$trainerHasBadgeStolen = false;
 	// Handle GET requests for trainerID
 	$trainerNum = '';
 	$fname = '';
