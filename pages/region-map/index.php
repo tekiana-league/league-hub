@@ -106,6 +106,7 @@
 		</svg>
 	</div>
 	<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
-	<h1>Title Header</h1>
+	<h1>Tekiana Region Map</h1>
+	<img src="../../images/map/campus-map.png" alt="Region Map"/>
  </body>
  </html>
