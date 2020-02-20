@@ -1,0 +1,16 @@
+/*General styles go here*/
+h1
+{
+	margin-bottom:4vmin;
+}
+
+img
+{
+	width:90%;
+	height:auto;
+}
+
+@media only screen and (orientation: landscape)
+{
+	/*Place styles here for landscape-mode devices*/
+}
