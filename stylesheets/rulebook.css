@@ -1,0 +1,15 @@
+/*General styles go here*/
+object
+{
+	width:85%;
+	height:auto;
+}
+
+@media only screen and (orientation: landscape)
+{
+	/*Place styles here for landscape-mode devices*/
+	object
+	{
+		width:55%;
+	}
+}
