@@ -154,7 +154,7 @@
 			<path class="menu-line" d="M500 500Q500 250 675 150"/>
 			<path class="menu-line" d="M500 500Q300 650 445 800"/>
 			<line class="menu-line" x1="500" y1="500" x2="750" y2="725"/>
-			<circle id="map-btn" class="menu-btn" cx="225" cy="650" r="75"/>
+			<circle id="map-btn" class="menu-btn" cx="225" cy="650" r="75" onClick="location.href='../region-map';"/>
 			<image class="menu-btn-img" x="-2" y="628" width="100" height="100" xlink:href="../../images/menu-icons/map.svg"/>
 			<circle id="login-btn" class="menu-btn" cx="675" cy="150" r="75" onClick="location.href='../<?php echo $btnText;?>';"/>
 			<image class="menu-btn-img" x="572" y="270" width="100" height="100" xlink:href="../../images/menu-icons/<?php echo $btnText;?>.svg"/>
