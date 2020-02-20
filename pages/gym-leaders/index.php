@@ -120,7 +120,7 @@
  <meta name="author" content="<Author Name Here>"/>
  <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <title>Tekiana League</title>
+ <title>Tekiana Gym Leaders</title>
  
  <link rel="shortcut icon" href="../../images/site-icons/gym-logo.png"/>
  
