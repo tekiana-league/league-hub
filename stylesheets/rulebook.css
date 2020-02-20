@@ -1,15 +1,16 @@
 /*General styles go here*/
-object
+#content
 {
 	width:85%;
 	height:auto;
+	text-align:left;
 }
 
 @media only screen and (orientation: landscape)
 {
 	/*Place styles here for landscape-mode devices*/
-	object
+	#content
 	{
-		width:55%;
+		width:70%;
 	}
 }

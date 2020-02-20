@@ -71,7 +71,7 @@ p
 	
 	p
 	{
-		font-size:1.5vmin;
+		font-size:1.75vmin;
 	}
 	
 	#league-logo
@@ -79,75 +79,3 @@ p
 		width:20%;
 	}
 }
-
-@media only screen and (min-width: 875px)
-{
-	/*Portrait-mode tablet styles go here*/
-}
-
-@media only screen and (min-width: 1050px)
-{
-	/*Landscape-mode tablet styles go here*/
-}
-
-@media only screen and (min-width: 1260px)
-{
-	/*720p desktop styles go here (1280x720)*/
-}
-
-@media only screen and (min-width: 1900px)
-{
-	/*1080p desktop styles go here (1920x1080)*/
-}
-
-@media only screen and (min-width: 2028px)
-{
-	/*2K desktop styles go here (2048x1080)*/
-}
-
-@media only screen and (min-width: 2540px)
-{
-	/*1440p desktop styles go here (2560x1440)*/
-}
-
-@media only screen and (min-width: 3120px)
-{
-	/*Intermediary breakpoint between 1440p and 4K*/
-}
-
-@media only screen and (min-width: 3820px)
-{
-	/*4K desktop styles go here (3840x2560)*/
-}
-
-@media only screen and (min-width: 4560px)
-{
-	/*Intermediary breakpoint 1 between 4K and 8K*/
-}
-
-@media only screen and (min-width: 5240px)
-{
-	/*Intermediary breakpoint 2 between 4K and 8K*/
-}
-
-@media only screen and (min-width: 5920px)
-{
-	/*Intermediary breakpoint 3 between 4K and 8K*/
-}
-
-@media only screen and (min-width: 6880px)
-{
-	/*Intermediary breakpoint 4 between 4K and 8K*/
-}
-
-@media only screen and (min-width: 7200px)
-{
-	/*Intermediary breakpoint 5 between 4K and 8K*/
-}
-
-@media only screen and (min-width: 7660px)
-{
-	/*8K and above desktop styles go here (7680x3840)*/
-}
-
-/*Animation styles go here*/

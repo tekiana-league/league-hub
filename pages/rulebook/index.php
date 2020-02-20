@@ -108,6 +108,39 @@
 	</div>
 	<img id="league-logo" src="../../images/logos/league-logo.png" alt="League Logo"/>
 	<h1>Tekiana League Rules</h1><br/>
-	<object type="application/pdf" data="../../files/rules.pdf"></object>
+	<div id="content">
+		<h2>General Rules</h2>
+		<p>
+			<ul>
+				<li>All Pokémon will be lowered to a cap of Level 50 when competing in League matches.</li>
+				<li>League matches will be fought using Local Communication.</li>
+				<li>Participants' teams may not contain more than one Pokémon with the same Pokédex number.</li>
+				<li>There are to be no duplicate items held by participating Pokémon</li>
+				<li>Participants will be allowed to use Pokémon from any region, provided they exist in the Galar Pokédex.</li>
+				<li>Participants will not be allowed to use legendary Pokémon in any League match.</li>
+				<li>Participants who are challenged by another Trainer are obligated to accept the challenge, under the terms specified by the challenging Trainer.</li>
+				<li>
+					<ul><li>This is to keep the League's atmosphere lively, and promote healthy rivalries between Trainers.</li></ul>
+				</li>
+			</ul>
+		</p>
+		<h2>Challenger Rules</h2>
+		<p>
+			<ul>
+				<li>Challengers must register to compete in the Tekiana League</li>
+				<li>
+					<ul>
+						<li>Registration will take place during the week preceding the League, and will continue throughout the duration of the League.</li>
+						<li>When registering, students will present their student ID, and specify a password for their League account.</li>
+					</ul>
+				</li>
+				<li>Challengers must collect at least 8 Gym Badges from challenging Gym Leaders in order to qualify for the League Championship tournament at the end of the League.</li>
+				<li>
+					<ul><li>Challengers will have approximately 2 weeks to collect as many Gym Badges as possible.</li></ul>
+				</li>
+			</ul>
+		</p>
+		<h2>Gym Leader Rules</h2>
+	</div>
  </body>
  </html>
