@@ -196,7 +196,7 @@
 		// Display the appropriate registration fields
 		$pageTitle = 'Trainer Registration';
 		$submitValue = 'Submit';
-		$formContent = '<h2 class="input-label">Trainer ID</h2>
+		$formContent = '<h2 class="input-label">Student ID</h2>
 			<input type="text" name="trainerID" autocomplete="off"/>
 			<h2 class="input-label">Trainer\'s First Name</h2>
 			<input type="text" name="fname" autocomplete="off"/>

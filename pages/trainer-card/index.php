@@ -318,6 +318,12 @@
 				{
 					$displayBadgeBtn = false;
 				}
+				
+				// If the trainer is a Gym Leader, lock the Badge Button
+				if (intval($result[0]['role']) > 2)
+				{
+					$displayBadgeBtn = false;
+				}
 			}
 			else
 			{
