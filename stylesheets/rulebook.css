@@ -3,6 +3,7 @@
 {
 	width:85%;
 	height:auto;
+	margin-left:7.5%;
 	text-align:left;
 }
 
@@ -12,5 +13,6 @@
 	#content
 	{
 		width:70%;
+		margin-left:15%;
 	}
 }
