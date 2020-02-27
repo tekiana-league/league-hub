@@ -226,6 +226,34 @@
 		}
 	}
 	
+	// If there is no trainerID specified in the URL, pick a random one
+	if (!isset($_GET['trainerID']))
+	{
+		// Include necessary functions
+		require_once('../../scripts/db-operations.php');
+		
+		// Connect to the DB
+		$link = db_connect();
+		
+		// If connection success, pull ALL trainer IDs
+		if (db_verify_conn($link))
+		{
+			// Select ALL IDs, and store them in an array
+			$result = db_select($link, 'SELECT studentid FROM trainers WHERE studentid <> $1', '1234');
+			
+			// Disconnect from the DB
+			db_disconnect($link);
+			
+			// If the array contains values, pick a random one
+			if (count($result) > 0)
+			{
+				$_GET['trainerID'] = $result[rand(0,count($result)-1)]['studentid'];
+			}
+		}
+		
+		// $_GET['trainerID'] = $value;
+	}
+	
 	$trainerHasBadgeStolen = false;
 	// Handle GET requests for trainerID
 	$trainerNum = '';
