@@ -128,16 +128,14 @@
 		<p>
 			<ul>
 				<li>Challengers must register to compete in the Tekiana League</li>
-				<li>
-					<ul>
-						<li>Registration will take place during the week preceding the League, and will continue throughout the duration of the League.</li>
-						<li>When registering, students will present their student ID, and specify a password for their League account.</li>
-					</ul>
-				</li>
+				<ul>
+					<li>Registration will take place during the week preceding the League, and will continue throughout the duration of the League.</li>
+					<li>When registering, students will present their student ID, and specify a password for their League account.</li>
+				</ul>
 				<li>Challengers must collect at least 8 Gym Badges from challenging Gym Leaders in order to qualify for the League Championship tournament at the end of the League.</li>
-				<li>
-					<ul><li>Challengers will have approximately 2 weeks to collect as many Gym Badges as possible.</li></ul>
-				</li>
+				<ul>
+					<li>Challengers will have approximately 2 weeks to collect as many Gym Badges as possible.</li>
+				</ul>
 			</ul>
 		</p>
 		<h2>Gym Leader Rules</h2>
