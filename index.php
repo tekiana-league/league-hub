@@ -106,11 +106,10 @@
 	</div>
 	<img id="league-logo" src="images/logos/league-logo.png" alt="League Logo"/>
 	<h1>Tekiana League Gym Challenge</h1>
-	<a href="https://discord.gg/TJNE3HQ"><p>Join the League's Discord</p></a>
 	<div class="content-div">
 		<h2>League Overview</h2>
 		<p>Welcome to the Tekiana League! This site serves as the League's central hub, and will be very useful during the Tekiana League Challenge.</p>
-		<p>To get started, get an account registered for the event at one of the event's registration stations, and get your team trained up!</p>
+		<p>To get started, <a href="https://discord.gg/TJNE3HQ">join the League's Discord server</a>,get an account registered for the event at one of the event's registration stations, and get your team trained up!</p>
 		<p>As with any Pokémon League, the Tekiana League will culminate in a League Championship Tournament, followed by the Champion Match. To qualify for the Tekiana League Championship Tournament, challengers are required to collect at least 8 Gym Badges from challenging Gym Leaders around the region.</p>
 	</div>
 	<div class="content-div">

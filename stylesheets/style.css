@@ -32,7 +32,7 @@ h2
 	font-size:3.3vmin;
 }
 
-p, ul, li
+p, a, ul, li
 {
 	font-size:2.25vmin;
 }
@@ -69,7 +69,7 @@ p, ul, li
 		font-size:3vmin;
 	}
 	
-	p, ul, li
+	p, a, ul, li
 	{
 		font-size:1.75vmin;
 	}
