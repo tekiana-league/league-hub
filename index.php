@@ -117,5 +117,9 @@
 		<p>To get started challenging Gyms, go ahead and check out the <a href="pages/region-map">Region Map</a> to know which locations are used in the event.</p>
 		<p>Also, check out the <a href="pages/gym-leaders">Roster of Gym Leaders</a> to figure out a bit about who you're going to be up against.</p>
 	</div>
+	<div class="content-div">
+		<h2>Trainer Cards</h2>
+		<p>Once you get your account registered, you can go to the <a href="pages/trainer-card<?php echo $trainerURL;?>">Trainer Card page</a>, where you have the ability to view other people's Trainer Cards and customize your own.</p>
+	</div>
  </body>
  </html>
