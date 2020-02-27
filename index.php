@@ -114,7 +114,8 @@
 	</div>
 	<div class="content-div">
 		<h2>Challenging Gyms</h2>
-		<p></p>
+		<p>To get started challenging Gyms, go ahead and check out the <a href="pages/region-map">Region Map</a> to know which locations are used in the event.</p>
+		<p>Also, check out the <a href="pages/gym-leaders">Roster of Gym Leaders</a> to figure out a bit about who you're going to be up against.</p>
 	</div>
  </body>
  </html>
