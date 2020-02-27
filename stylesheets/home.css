@@ -4,6 +4,7 @@
 	display:inline-block;
 	width:85%;
 	height:auto;
+	margin:2.5%;
 }
 
 @media only screen and (orientation: landscape)
