@@ -119,9 +119,9 @@
 				<li>Participants will be allowed to use Pokémon from any region, provided they exist in the Galar Pokédex.</li>
 				<li>Participants will not be allowed to use legendary Pokémon in any League match.</li>
 				<li>Participants who are challenged by another Trainer are obligated to accept the challenge, under the terms specified by the challenging Trainer.</li>
-				<li>
-					<ul><li>This is to keep the League's atmosphere lively, and promote healthy rivalries between Trainers.</li></ul>
-				</li>
+				<ul>
+					<li>This is to keep the League's atmosphere lively, and promote healthy rivalries between Trainers.</li>
+				</ul>
 			</ul>
 		</p>
 		<h2>Challenger Rules</h2>
