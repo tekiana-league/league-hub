@@ -122,7 +122,7 @@
 		<p>Once you get your account registered, you can go to the <a href="pages/trainer-card<?php echo $trainerURL;?>">Trainer Card page</a>, where you have the ability to view other people's Trainer Cards and customize your own.</p>
 		<p>To update your card, simply fill out the field(s) you wish to update, and then select "Update Card" to save your changes.</p>
 		<p>To update an image, you only need the URL of the image you want to add to your card.</p>
-		<p>Also, the overlay on your card is semi-transparent, so Trainers can add their own flair to their cards!</p>
+		<p>Also, the overlay on Trainers' cards is semi-transparent, so Trainers can add their own flair to their cards!</p>
 	</div>
  </body>
  </html>
