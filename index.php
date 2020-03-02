@@ -115,7 +115,7 @@
 	<div class="content-div">
 		<h2>Challenging Gyms</h2>
 		<p>To get started challenging Gyms, go ahead and check out the <a href="pages/region-map">Region Map</a> to know which locations are used in the event, and check out the <a href="pages/rulebook">Rulebook</a> to get acquainted with the League's restrictions.</p>
-		<p>Also, check out the <a href="pages/gym-leaders">Roster of Gym Leaders</a> to figure out a bit about who you're going to be up against.</p>
+		<p>Also, check out the <a href="pages/gym-leaders">Roster of Gym Leaders</a> to figure out a bit about who you're going to be up against, and what Gym Challenges you'll need to complete.</p>
 	</div>
 	<div class="content-div">
 		<h2>Trainer Cards</h2>
