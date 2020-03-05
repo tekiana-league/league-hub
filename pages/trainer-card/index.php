@@ -88,9 +88,30 @@
 			}
 			if (isset($_POST['cardNumber']) && !empty(trim($_POST['cardNumber'])) && ctype_digit(trim($_POST['cardNumber'])) && strlen(trim($_POST['cardNumber'])) <= 3)
 			{
-				if ($counter > 2){$sqlAdditions .= ', ';}
-				$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
-				$counter++;
+				if (strlen(trim($_POST['cardNumber'])) < 3)
+				{
+					// Store number on card
+					$cardNumber = trim($_POST['cardNumber']);
+					// Append zeros
+					$_POST['cardNumber'] = '';
+					for ($i=0; $i<strlen($cardNumber); i++)
+					{
+						$_POST['cardNumber'] .= '0';
+					}
+					$_POST['cardNumber'] .= $cardNumber;
+				}
+				// Query the DB for the card number, and see if it is unique
+				$result = db_select($link, 'SELECT trainernum FROM trainers where trainernum = $1', trim($_POST['cardNumber']))
+				if (count($result) < 1)
+				{
+					if ($counter > 2){$sqlAdditions .= ', ';}
+					$sqlAdditions .= 'trainernum = \''.str_replace(';', '', trim($_POST['cardNumber'])).'\'';
+					$counter++;
+				}
+				else
+				{
+					$errorText .= 'That Trainer Card Number is already in use. Please input a different Trainer Card Number.<br/>';
+				}
 			}
 			if (isset($_POST['cardColor']) && !empty(trim($_POST['cardColor'])) && $_POST['cardColor'] != '%23000000' && substr(str_replace(';', '', trim($_POST['cardColor'])), 1, 6) != '000000')
 			{
