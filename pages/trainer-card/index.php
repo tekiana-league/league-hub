@@ -101,7 +101,7 @@
 					$_POST['cardNumber'] .= $cardNumber;
 				}
 				// Query the DB for the card number, and see if it is unique
-				$result = db_select($link, 'SELECT trainernum FROM trainers where trainernum = $1', trim($_POST['cardNumber']))
+				$result = db_select($link, 'SELECT trainernum FROM trainers where trainernum = $1', trim($_POST['cardNumber']));
 				if (count($result) < 1)
 				{
 					if ($counter > 2){$sqlAdditions .= ', ';}
