@@ -94,7 +94,7 @@
 					$cardNumber = trim($_POST['cardNumber']);
 					// Append zeros
 					$_POST['cardNumber'] = '';
-					for ($i=0; $i<strlen($cardNumber); i++)
+					for ($i=0; $i<strlen($cardNumber); $i++)
 					{
 						$_POST['cardNumber'] .= '0';
 					}
