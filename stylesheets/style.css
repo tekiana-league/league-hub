@@ -79,3 +79,15 @@ p, a, ul, li
 		width:20%;
 	}
 }
+
+@font-face
+{
+	font-family: wingdings;
+	src: url('../fonts/wingding.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/wingding.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		url('../fonts/wingding.woff2') format('woff2'), /* Modern Browsers */
+		url('../fonts/wingding.woff') format('woff'), /* Modern Browsers */
+		url('../fonts/wingding.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/wingding.svg') format('svg'); /* Legacy iOS */  font-weight: normal;
+	font-style: normal;
+}
