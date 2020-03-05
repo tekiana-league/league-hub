@@ -297,7 +297,8 @@
 		if (db_verify_conn($link))
 		{
 			// Prepare the statement
-			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1';
+			//$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1';
+			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1 OR trainernum = $1 OR fname LIKE $1% OR lname LIKE $1% OR (fname + ' ' + lname LIKE $1)';
 			
 			// Execute the statement
 			$result = db_select($link, $sql, trim($_GET['trainerID']));
