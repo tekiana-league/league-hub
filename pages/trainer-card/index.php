@@ -307,7 +307,7 @@
 			db_disconnect($link);
 			
 			// If the username exists, display the information
-			if (count($result) == 1)
+			if (count($result) >= 1)
 			{
 				$trainerNum = $result[0]['studentid'];
 				$fname = $result[0]['fname'];
