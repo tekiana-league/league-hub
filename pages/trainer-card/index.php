@@ -298,7 +298,7 @@
 		{
 			// Prepare the statement
 			//$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1';
-			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1 OR trainernum = $1 OR (fname LIKE $2) OR (lname LIKE $2)';
+			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1 OR trainernum = $1 OR fname = $1 OR lname = $1';
 			
 			// Execute the statement
 			$result = db_select($link, $sql, trim($_GET['trainerID']), trim($_GET['trainerID']).'%');
