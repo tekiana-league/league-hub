@@ -298,10 +298,10 @@
 		{
 			// Prepare the statement
 			//$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1';
-			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1 OR trainernum = $1 OR LOWER(fname) LIKE LOWER($2) OR LOWER(lname) LIKE LOWER($2) OR LOWER(CONCAT(fname, \' \', lname)) LIKE LOWER($2)';
+			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1 OR trainernum LIKE $3 OR LOWER(fname) LIKE LOWER($2) OR LOWER(lname) LIKE LOWER($2) OR LOWER(CONCAT(fname, \' \', lname)) LIKE LOWER($2)';
 			
 			// Execute the statement
-			$result = db_select($link, $sql, trim($_GET['trainerID']), trim($_GET['trainerID']).'%');
+			$result = db_select($link, $sql, trim($_GET['trainerID']), trim($_GET['trainerID']).'%', '%'.trim($_GET['trainerID']));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
