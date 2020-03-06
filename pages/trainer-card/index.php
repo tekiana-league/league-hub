@@ -298,16 +298,16 @@
 		{
 			// Prepare the statement
 			//$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1';
-			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1 OR trainernum = $1 OR fname LIKE $2 OR lname LIKE $2';
+			$sql = 'SELECT studentid, fname, lname, badges, role, bordercolor, bgimg, fgimg, overlayimg, trainernum, earned_time FROM trainers WHERE studentid = $1 OR trainernum = $1 OR fname LIKE $1% OR lname LIKE $1% OR (fname + ' ' + lname LIKE $1)';
 			
 			// Execute the statement
-			$result = db_select($link, $sql, trim($_GET['trainerID']), trim($_GET['trainerID']).'%');
+			$result = db_select($link, $sql, trim($_GET['trainerID']));
 			
 			// Disconnect from the DB
 			db_disconnect($link);
 			
 			// If the username exists, display the information
-			if (count($result) >= 1)
+			if (count($result) == 1)
 			{
 				$trainerNum = $result[0]['studentid'];
 				$fname = $result[0]['fname'];
