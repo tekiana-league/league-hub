@@ -500,7 +500,7 @@
 	<?php echo $badgeButton;?>
 	<br/>
 	<form id="search-form" action="./" method="get">
-		<input type="text" name="trainerID" placeholder="Search for Trainer ID, Number, or name"/>
+		<input type="text" name="trainerID" placeholder="Search for Trainer ID, Name"/>
 		<input type="submit" value="Search"/>
 	</form>
 	<br/>
